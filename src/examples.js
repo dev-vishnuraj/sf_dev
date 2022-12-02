@@ -90,7 +90,7 @@ import * as PasswordResetForm from './forms/PasswordResetForm/PasswordResetForm.
 import * as ReviewForm from './forms/ReviewForm/ReviewForm.example';
 import * as SendMessageForm from './forms/SendMessageForm/SendMessageForm.example';
 import * as SignupForm from './forms/SignupForm/SignupForm.example';
-import * as StripePaymentForm from './forms/StripePaymentForm/StripePaymentForm.example';
+// import * as StripePaymentForm from './forms/StripePaymentForm/StripePaymentForm.example';
 
 // containers
 import * as Colors from './containers/StyleguidePage/Colors.example';
@@ -182,7 +182,6 @@ export {
   SendMessageForm,
   SignupForm,
   StripeBankAccountTokenInputField,
-  StripePaymentForm,
   TabNav,
   TabNavHorizontal,
   Tabs,

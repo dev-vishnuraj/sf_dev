@@ -79,7 +79,7 @@ const TopbarDesktop = props => {
         <Avatar className={css.avatar} user={currentUser} disableProfileLink />
       </MenuLabel>
       <MenuContent className={css.profileMenuContent}>
-        <MenuItem key="ManageListingsPage">
+        {/* <MenuItem key="ManageListingsPage">
           <NamedLink
             className={classNames(css.yourListingsLink, currentPageClass('ManageListingsPage'))}
             name="ManageListingsPage"
@@ -87,25 +87,32 @@ const TopbarDesktop = props => {
             <span className={css.menuItemBorder} />
             <FormattedMessage id="TopbarDesktop.yourListingsLink" />
           </NamedLink>
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem key="ProfileSettingsPage">
-          <NamedLink
+        <NamedLink
+            className={classNames(css.yourListingsLink, currentPageClass('ManageListingsPage'))}
+            name="ManageListingsPage"
+          >
+            <span className={css.menuItemBorder} />
+            <FormattedMessage id="TopbarDesktop.profileSettingsLink" />
+          </NamedLink>
+          {/* <NamedLink
             className={classNames(css.profileSettingsLink, currentPageClass('ProfileSettingsPage'))}
             name="ProfileSettingsPage"
           >
             <span className={css.menuItemBorder} />
             <FormattedMessage id="TopbarDesktop.profileSettingsLink" />
-          </NamedLink>
+          </NamedLink> */}
         </MenuItem>
-        <MenuItem key="AccountSettingsPage">
-          <NamedLink
+        {/* <MenuItem key="AccountSettingsPage"> */}
+          {/* <NamedLink
             className={classNames(css.yourListingsLink, currentPageClass('AccountSettingsPage'))}
             name="AccountSettingsPage"
           >
             <span className={css.menuItemBorder} />
             <FormattedMessage id="TopbarDesktop.accountSettingsLink" />
-          </NamedLink>
-        </MenuItem>
+          </NamedLink> */}
+        {/* </MenuItem> */}
         <MenuItem key="logout">
           <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
             <span className={css.menuItemBorder} />

@@ -23,22 +23,22 @@
    :from :state/enquiry,
    :to :state/preauthorized
    :privileged? true}
-  {:name :transition/expire-payment,
-   :at
-   {:fn/plus
-    [{:fn/timepoint [:time/first-entered-state :state/pending-payment]}
-     {:fn/period ["PT15M"]}]},
-   :actions
-   [{:name :action/decline-booking}
-    {:name :action/calculate-full-refund}
-    {:name :action/stripe-refund-payment}],
-   :from :state/pending-payment,
-   :to :state/payment-expired}
-  {:name :transition/confirm-payment,
-   :actor :actor.role/customer,
-   :actions [{:name :action/stripe-confirm-payment-intent}],
-   :from :state/pending-payment,
-   :to :state/preauthorized}
+  ;; {:name :transition/expire-payment,
+  ;;  :at
+  ;;  {:fn/plus
+  ;;   [{:fn/timepoint [:time/first-entered-state :state/pending-payment]}
+  ;;    {:fn/period ["PT15M"]}]},
+  ;;  :actions
+  ;;  [{:name :action/decline-booking}
+  ;;   {:name :action/calculate-full-refund}
+  ;;   {:name :action/stripe-refund-payment}],
+  ;;  :from :state/pending-payment,
+  ;;  :to :state/payment-expired}
+  ;; {:name :transition/confirm-payment,
+  ;;  :actor :actor.role/customer,
+  ;;  :actions [{:name :action/stripe-confirm-payment-intent}],
+  ;;  :from :state/pending-payment,
+  ;;  :to :state/preauthorized}
   {:name :transition/accept,
    :actor :actor.role/provider,
    :actions
