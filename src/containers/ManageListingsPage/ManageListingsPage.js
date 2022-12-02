@@ -73,12 +73,7 @@ export class ManageListingsPageComponent extends Component {
 
     const heading =
       listingsAreLoaded && pagination.totalItems > 0 ? (
-        <h1 className={css.title}>
-          <FormattedMessage
-            id="ManageListingsPage.youHaveListings"
-            values={{ count: pagination.totalItems }}
-          />
-        </h1>
+        null
       ) : (
         noResults
       );
@@ -139,9 +134,9 @@ export class ManageListingsPageComponent extends Component {
               {paginationLinks}
             </div>
           </LayoutWrapperMain>
-          <LayoutWrapperFooter>
+          {/* <LayoutWrapperFooter>
             <Footer />
-          </LayoutWrapperFooter>
+          </LayoutWrapperFooter> */}
         </LayoutSingleColumn>
       </Page>
     );

@@ -54,7 +54,7 @@ const TopbarDesktop = props => {
 
   console.log("CURRENT USER LISTINGS = ", currentUserHasListings)
 
-  const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
+  // const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
 
   // const inboxLink = authenticatedOnClientSide ? (
   //   <NamedLink

@@ -306,7 +306,7 @@ export const ManageListingCardComponent = props => {
       </div>
 
       <div className={css.info}>
-        <div className={css.price}>
+        {/* <div className={css.price}>
           {formattedPrice ? (
             <React.Fragment>
               <div className={css.priceValue} title={priceTitle}>
@@ -321,9 +321,9 @@ export const ManageListingCardComponent = props => {
               <FormattedMessage id="ManageListingCard.priceNotSet" />
             </div>
           )}
-        </div>
+        </div> */}
 
-        <div className={css.mainInfo}>
+        {/* <div className={css.mainInfo}>
           <div className={css.titleWrapper}>
             <InlineTextButton
               rootClassName={titleClasses}
@@ -336,9 +336,9 @@ export const ManageListingCardComponent = props => {
               {formatTitle(title, MAX_LENGTH_FOR_WORDS_IN_TITLE)}
             </InlineTextButton>
           </div>
-        </div>
+        </div> */}
 
-        <div className={css.manageLinks}>
+        {/* <div className={css.manageLinks}>
           <NamedLink
             className={css.manageLink}
             name="EditListingPage"
@@ -360,7 +360,7 @@ export const ManageListingCardComponent = props => {
               </NamedLink>
             </React.Fragment>
           ) : null}
-        </div>
+        </div> */}
       </div>
     </div>
   );
