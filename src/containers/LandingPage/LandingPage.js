@@ -8,21 +8,16 @@ import { isScrollingDisabled } from '../../ducks/UI.duck';
 import config from '../../config';
 import {
   Page,
-  SectionHero,
-  SectionHowItWorks,
-  SectionLocations,
   LayoutSingleColumn,
   LayoutWrapperTopbar,
   LayoutWrapperMain,
-  LayoutWrapperFooter,
-  Footer,
 } from '../../components';
 import { TopbarContainer } from '../../containers';
 
 import facebookImage from '../../assets/saunatimeFacebook-1200x630.jpg';
 import twitterImage from '../../assets/saunatimeTwitter-600x314.jpg';
 import css from './LandingPage.module.css';
-import ManageListingsPage from '../ManageListingsPage/ManageListingsPage';
+// import ManageListingsPage from '../ManageListingsPage/ManageListingsPage';
 
 export const LandingPageComponent = props => {
   const { history, intl, location, scrollingDisabled } = props;
@@ -59,6 +54,7 @@ export const LandingPageComponent = props => {
           <TopbarContainer />
         </LayoutWrapperTopbar>
         <LayoutWrapperMain>
+          <div style={{width: '100%', padding: '100px', fontSize: '24px'}}>{"We will list down all the service requests here!"}</div>
           {/* <div>
             <ManageListingsPage />
           </div> */}

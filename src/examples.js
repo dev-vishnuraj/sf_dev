@@ -65,7 +65,6 @@ import * as Reviews from './components/Reviews/Reviews.example';
 import * as SavedCardDetails from './components/SavedCardDetails/SavedCardDetails.example';
 import * as SectionThumbnailLinks from './components/SectionThumbnailLinks/SectionThumbnailLinks.example';
 import * as SelectMultipleFilter from './components/SelectMultipleFilter/SelectMultipleFilter.example';
-import * as StripeBankAccountTokenInputField from './components/StripeBankAccountTokenInputField/StripeBankAccountTokenInputField.example';
 import * as TabNav from './components/TabNav/TabNav.example';
 import * as TabNavHorizontal from './components/TabNavHorizontal/TabNavHorizontal.example';
 import * as Tabs from './components/Tabs/Tabs.example';
@@ -90,7 +89,6 @@ import * as PasswordResetForm from './forms/PasswordResetForm/PasswordResetForm.
 import * as ReviewForm from './forms/ReviewForm/ReviewForm.example';
 import * as SendMessageForm from './forms/SendMessageForm/SendMessageForm.example';
 import * as SignupForm from './forms/SignupForm/SignupForm.example';
-// import * as StripePaymentForm from './forms/StripePaymentForm/StripePaymentForm.example';
 
 // containers
 import * as Colors from './containers/StyleguidePage/Colors.example';
@@ -181,7 +179,6 @@ export {
   SelectMultipleFilter,
   SendMessageForm,
   SignupForm,
-  StripeBankAccountTokenInputField,
   TabNav,
   TabNavHorizontal,
   Tabs,

@@ -329,12 +329,6 @@ export class TransactionPanelComponent extends Component {
       id: 'TransactionPanel.sendingMessageNotAllowed',
     });
 
-    const paymentMethodsPageLink = (
-      <NamedLink name="PaymentMethodsPage">
-        <FormattedMessage id="TransactionPanel.paymentMethodsPageLink" />
-      </NamedLink>
-    );
-
     const classes = classNames(rootClassName || css.root, className);
 
     return (
@@ -376,14 +370,6 @@ export class TransactionPanelComponent extends Component {
               <BreakdownMaybe transaction={currentTransaction} transactionRole={transactionRole} />
             </div>
 
-            {savePaymentMethodFailed ? (
-              <p className={css.genericError}>
-                <FormattedMessage
-                  id="TransactionPanel.savePaymentMethodFailed"
-                  values={{ paymentMethodsPageLink }}
-                />
-              </p>
-            ) : null}
             <FeedSection
               rootClassName={css.feedContainer}
               currentTransaction={currentTransaction}

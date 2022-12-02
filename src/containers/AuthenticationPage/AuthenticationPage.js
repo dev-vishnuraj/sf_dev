@@ -419,13 +419,13 @@ export class AuthenticationPageComponent extends Component {
                 <h2 className={css.termsHeading}>
                   <FormattedMessage id="AuthenticationPage.termsHeading" />
                 </h2>
-                <TermsOfService />
+                {/* <TermsOfService /> */}
               </div>
             </Modal>
           </LayoutWrapperMain>
-          <LayoutWrapperFooter>
+          {/* <LayoutWrapperFooter>
             <Footer />
-          </LayoutWrapperFooter>
+          </LayoutWrapperFooter> */}
         </LayoutSingleColumn>
       </Page>
     );

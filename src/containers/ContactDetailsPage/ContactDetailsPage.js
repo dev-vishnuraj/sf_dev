@@ -14,7 +14,6 @@ import {
   LayoutWrapperFooter,
   Footer,
   Page,
-  UserNav,
 } from '../../components';
 import { ContactDetailsForm } from '../../forms';
 import { TopbarContainer } from '../../containers';
@@ -81,7 +80,6 @@ export const ContactDetailsPageComponent = props => {
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}
           />
-          <UserNav selectedPageName="ContactDetailsPage" />
         </LayoutWrapperTopbar>
         <LayoutWrapperAccountSettingsSideNav currentTab="ContactDetailsPage" />
         <LayoutWrapperMain>

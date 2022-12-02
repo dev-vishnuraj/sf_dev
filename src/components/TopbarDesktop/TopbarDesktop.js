@@ -52,20 +52,22 @@ const TopbarDesktop = props => {
     />
   );
 
+  console.log("CURRENT USER LISTINGS = ", currentUserHasListings)
+
   const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
 
-  const inboxLink = authenticatedOnClientSide ? (
-    <NamedLink
-      className={css.inboxLink}
-      name="InboxPage"
-      params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
-    >
-      <span className={css.inbox}>
-        <FormattedMessage id="TopbarDesktop.inbox" />
-        {notificationDot}
-      </span>
-    </NamedLink>
-  ) : null;
+  // const inboxLink = authenticatedOnClientSide ? (
+  //   <NamedLink
+  //     className={css.inboxLink}
+  //     name="InboxPage"
+  //     params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
+  //   >
+  //     <span className={css.inbox}>
+  //       <FormattedMessage id="TopbarDesktop.inbox" />
+  //       {notificationDot}
+  //     </span>
+  //   </NamedLink>
+  // ) : null;
 
   const currentPageClass = page => {
     const isAccountSettingsPage =
@@ -131,6 +133,14 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  const editProfileLink = isAuthenticated ? (
+    <NamedLink className={css.createListingLink} name="NewListingPage">
+        <span className={css.createListing}>
+          <FormattedMessage id="TopbarDesktop.createListing" />
+        </span>
+      </NamedLink>
+  ) : null;
+
   const loginLink = isAuthenticatedOrJustHydrated ? null : (
     <NamedLink name="LoginPage" className={css.loginLink}>
       <span className={css.login}>
@@ -149,12 +159,8 @@ const TopbarDesktop = props => {
         />
       </NamedLink>
       {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
-        <span className={css.createListing}>
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-      </NamedLink>
-      {inboxLink}
+      {editProfileLink}
+      {/* {inboxLink} */}
       {profileMenu}
       {signupLink}
       {loginLink}

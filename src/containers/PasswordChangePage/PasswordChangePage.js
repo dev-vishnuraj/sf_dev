@@ -13,7 +13,6 @@ import {
   LayoutWrapperFooter,
   Footer,
   Page,
-  UserNav,
 } from '../../components';
 import { PasswordChangeForm } from '../../forms';
 import { TopbarContainer } from '../../containers';
@@ -63,7 +62,6 @@ export const PasswordChangePageComponent = props => {
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}
           />
-          <UserNav selectedPageName="PasswordChangePage" />
         </LayoutWrapperTopbar>
         <LayoutWrapperAccountSettingsSideNav currentTab="PasswordChangePage" />
         <LayoutWrapperMain>
