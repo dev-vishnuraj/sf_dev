@@ -95,6 +95,7 @@ export { default as FieldDateRangeInput } from './FieldDateRangeInput/FieldDateR
 export { default as FieldRadioButton } from './FieldRadioButton/FieldRadioButton';
 export { default as FieldReviewRating } from './FieldReviewRating/FieldReviewRating';
 export { default as FieldSelect } from './FieldSelect/FieldSelect';
+export { default as FieldMultiTagsInput } from './FieldMultiTagsInput/FieldMultiTagsInput';
 export { default as FieldTextInput } from './FieldTextInput/FieldTextInput';
 // Fields that use other Fields
 export { default as FieldBoolean } from './FieldBoolean/FieldBoolean';
@@ -172,3 +173,5 @@ export { default as TopbarDesktop } from './TopbarDesktop/TopbarDesktop';
 export { default as TopbarMobileMenu } from './TopbarMobileMenu/TopbarMobileMenu';
 export { default as TransactionPanel } from './TransactionPanel/TransactionPanel';
 export { default as EditListingBioPanel} from './EditListingBioPanel/EditListingBioPanel';
+export {default as EditListingManufacturerPanel} from './EditListingManufacturerPanel/EditListingManufacturerPanel'
+export {default as EditListingOperationHoursPanel} from './EditListingOperationHoursPanel/EditListingOperationHoursPanel'

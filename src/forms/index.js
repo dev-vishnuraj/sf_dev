@@ -23,3 +23,5 @@ export { default as SendMessageForm } from './SendMessageForm/SendMessageForm';
 export { default as SignupForm } from './SignupForm/SignupForm';
 export { default as TopbarSearchForm } from './TopbarSearchForm/TopbarSearchForm';
 export {default as EditListingBioForm} from './EditListingBioForm/EditListingBioForm';
+export {default as EditListingManufacturerForm} from './EditListingManufacturerForm/EditListingManufacturerForm';
+export {default as EditListingOperationHoursForm} from './EditListingOperationHoursForm/EditListingOperationHoursForm';

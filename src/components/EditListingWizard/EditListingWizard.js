@@ -16,7 +16,7 @@ import { NamedRedirect, Tabs } from '../../components';
 
 import EditListingWizardTab, {
   BIO,
-  BRANDS,
+  MANUFACTURERS,
   OPERATION_HOURS,
   PAYMENT_METHODS,
   SERVICES,
@@ -34,7 +34,7 @@ import css from './EditListingWizard.module.css';
 // and listing publishing happens after last panel.
 export const TABS = [
   BIO,
-  BRANDS,
+  MANUFACTURERS,
   OPERATION_HOURS,
   PAYMENT_METHODS,
   SERVICES,
@@ -49,8 +49,8 @@ const tabLabel = (intl, tab) => {
   let key = null;
   if (tab === BIO) {
     key = 'EditListingWizard.tabLabelBio';
-  } else if (tab === BRANDS) {
-    key = 'EditListingWizard.tabLabelBrands';
+  } else if (tab === MANUFACTURERS) {
+    key = 'EditListingWizard.tabLabelManufacturers';
   } else if (tab === OPERATION_HOURS) {
     key = 'EditListingWizard.tabLabelOperationHours';
   } else if (tab === PAYMENT_METHODS) {
@@ -89,8 +89,8 @@ const tabCompleted = (tab, listing) => {
         publicData.companyAddress &&
         publicData.companyDescription
       );
-    case BRANDS:
-      return !!(publicData && publicData.brands);
+    case MANUFACTURERS:
+      return !!(publicData && publicData.manufacturer);
     case OPERATION_HOURS:
       return !!(publicData && publicData.operation_hours);
     case PAYMENT_METHODS:
