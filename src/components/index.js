@@ -173,5 +173,8 @@ export { default as TopbarDesktop } from './TopbarDesktop/TopbarDesktop';
 export { default as TopbarMobileMenu } from './TopbarMobileMenu/TopbarMobileMenu';
 export { default as TransactionPanel } from './TransactionPanel/TransactionPanel';
 export { default as EditListingBioPanel} from './EditListingBioPanel/EditListingBioPanel';
-export {default as EditListingManufacturerPanel} from './EditListingManufacturerPanel/EditListingManufacturerPanel'
-export {default as EditListingOperationHoursPanel} from './EditListingOperationHoursPanel/EditListingOperationHoursPanel'
+export { default as EditListingManufacturerPanel } from './EditListingManufacturerPanel/EditListingManufacturerPanel'
+export { default as EditListingOperationHoursPanel } from './EditListingOperationHoursPanel/EditListingOperationHoursPanel'
+export { default as EditListingPaymentMethodsPanel } from './EditListingPaymentMethodsPanel/EditListingPaymentMethodsPanel'
+export { default as EditListingServicesPanel } from './EditListingServicesPanel/EditListingServicesPanel'
+export { default as EditListingZipCodesPanel } from './EditListingZipCodesPanel/EditListingZipCodesPanel'

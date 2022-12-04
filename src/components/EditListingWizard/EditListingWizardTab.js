@@ -12,10 +12,14 @@ import { createResourceLocatorString } from '../../util/routes';
 import {
   EditListingBioPanel,
   EditListingManufacturerPanel,
-  EditListingOperationHoursPanel
+  EditListingOperationHoursPanel,
+  EditListingPaymentMethodsPanel,
+  EditListingServicesPanel,
+  EditListingZipCodesPanel
 } from '../../components';
 
 import css from './EditListingWizard.module.css';
+import EditListingCertificationsPanel from '../EditListingCertificationsPanel/EditListingCertificationsPanel';
 
 // export const AVAILABILITY = 'availability';
 // export const DESCRIPTION = 'description';
@@ -27,7 +31,7 @@ import css from './EditListingWizard.module.css';
 
 export const BIO = 'bio';
 export const MANUFACTURERS = 'manufacturers';
-export const OPERATION_HOURS = 'operation_hours';
+export const OPERATION_HOURS = 'operationHours';
 export const PAYMENT_METHODS = 'payment_method';
 export const SERVICES = 'services';
 export const CERTIFICATIONS = 'certifications';
@@ -214,7 +218,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewPaymentMethods'
         : 'EditListingWizard.saveEditPaymentMethods';
       return (
-        <EditListingBioPanel
+        <EditListingPaymentMethodsPanel
           {...panelProps(PAYMENT_METHODS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -228,7 +232,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewServices'
         : 'EditListingWizard.saveEditServices';
       return (
-        <EditListingBioPanel
+        <EditListingServicesPanel
           {...panelProps(SERVICES)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -242,7 +246,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewCertifications'
         : 'EditListingWizard.saveEditCertifications';
       return (
-        <EditListingBioPanel
+        <EditListingCertificationsPanel
           {...panelProps(CERTIFICATIONS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -256,7 +260,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewZipCodes'
         : 'EditListingWizard.saveEditZipCodes';
       return (
-        <EditListingBioPanel
+        <EditListingZipCodesPanel
           {...panelProps(ZIP_CODES)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {

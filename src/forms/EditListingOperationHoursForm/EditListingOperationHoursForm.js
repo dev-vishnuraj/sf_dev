@@ -55,8 +55,8 @@ const EditListingOperationHoursFormComponent = props => (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessageUpdateListing}
           <FieldTextInput
-            id="operation_hours"
-            name="operation_hours"
+            id="operationHours"
+            name="operationHours"
             className={css.operationHours}
             type="text"
             label={operationHoursMessage}

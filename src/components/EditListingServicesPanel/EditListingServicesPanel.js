@@ -1,20 +1,21 @@
 import React from 'react';
-import { bool, func, object, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
-import { ensureOwnListing } from '../../util/data';
-// import { findOptionsForSelectFilter } from '../../util/search';
+
 import { LISTING_STATE_DRAFT } from '../../util/types';
+import { ensureListing } from '../../util/data';
+import { EditListingPaymentMethodsForm, EditListingServicesForm } from '../../forms';
 import { ListingLink } from '..';
-import { EditListingBioForm, EditListingoperationHoursForm, EditListingOperationHoursForm } from '../../forms';
-// import config from '../../config';
 
-import css from './EditListingOperationHoursPanel.module.css';
+import css from './EditListingServicesPanel.module.css';
 
-const EditListingOperationHoursPanel = props => {
+const FEATURES_NAME = 'services';
+
+const EditListingServicesPanel = props => {
   const {
-    className,
     rootClassName,
+    className,
     listing,
     disabled,
     ready,
@@ -27,40 +28,39 @@ const EditListingOperationHoursPanel = props => {
   } = props;
 
   const classes = classNames(rootClassName || css.root, className);
-  const currentListing = ensureOwnListing(listing);
+  const currentListing = ensureListing(listing);
   const { publicData } = currentListing.attributes;
 
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
-      id="EditListingOperationHoursPanel.title"
+      id="EditListingServicesPanel.title"
       values={{ listingTitle: <ListingLink listing={listing} /> }}
     />
   ) : (
-    <FormattedMessage id="EditListingOperationHoursPanel.createListingTitle" />
+    <FormattedMessage id="EditListingServicesPanel.createListingTitle" />
   );
 
-  // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
+  const services = publicData && publicData.services;
+  const initialValues = { services };
+
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
-      <EditListingOperationHoursForm
+      <EditListingServicesForm
         className={css.form}
-        initialValues={{
-          operationHours: publicData.operationHours,
-        }}
-        saveActionMsg={submitButtonText}
+        name={FEATURES_NAME}
+        initialValues={initialValues}
         onSubmit={values => {
-          const { operationHours } = values;
-          const updateValues = {
-            publicData: {
-              operationHours,
-            },
-          };
+          const { services = [] } = values;
 
-          onSubmit(updateValues);
+          const updatedValues = {
+            publicData: { services },
+          };
+          onSubmit(updatedValues);
         }}
         onChange={onChange}
+        saveActionMsg={submitButtonText}
         disabled={disabled}
         ready={ready}
         updated={panelUpdated}
@@ -71,16 +71,17 @@ const EditListingOperationHoursPanel = props => {
   );
 };
 
-EditListingOperationHoursPanel.defaultProps = {
-  className: null,
+EditListingServicesPanel.defaultProps = {
   rootClassName: null,
-  errors: null,
+  className: null,
   listing: null,
 };
 
-EditListingOperationHoursPanel.propTypes = {
-  className: string,
+const { bool, func, object, string } = PropTypes;
+
+EditListingServicesPanel.propTypes = {
   rootClassName: string,
+  className: string,
 
   // We cannot use propTypes.listing since the listing might be a draft.
   listing: object,
@@ -95,4 +96,4 @@ EditListingOperationHoursPanel.propTypes = {
   errors: object.isRequired,
 };
 
-export default EditListingOperationHoursPanel;
+export default EditListingServicesPanel;
