@@ -6,11 +6,11 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
 import { EditListingPaymentMethodsForm } from '../../forms';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 
 import css from './EditListingPaymentMethodsPanel.module.css';
 
-const FEATURES_NAME = 'Payment Methods';
+const FEATURES_NAME = 'payments';
 
 const EditListingPaymentMethodsPanel = props => {
   const {
@@ -41,8 +41,8 @@ const EditListingPaymentMethodsPanel = props => {
     <FormattedMessage id="EditListingPaymentMethodsPanel.createListingTitle" />
   );
 
-  const paymentMethods = publicData && publicData.paymentMethods;
-  const initialValues = { paymentMethods };
+  const payments = publicData && publicData.payments;
+  const initialValues = { payments };
 
   return (
     <div className={classes}>
@@ -52,10 +52,10 @@ const EditListingPaymentMethodsPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { paymentMethods = [] } = values;
+          const { payments = [] } = values;
 
           const updatedValues = {
-            publicData: { paymentMethods },
+            publicData: { payments },
           };
           onSubmit(updatedValues);
         }}

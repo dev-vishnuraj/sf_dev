@@ -93,11 +93,11 @@ export const filters = [
     },
   },
   {
-    id: 'paymentMethods',
+    id: 'payments',
     label: 'Payment Methods',
     type: 'SelectMultipleFilter',
     group: 'secondary',
-    queryParamNames: ['pub_paymentMethods'],
+    queryParamNames: ['pub_payments'],
     config: {
       // Optional modes: 'has_all', 'has_any'
       // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
@@ -171,11 +171,11 @@ export const filters = [
     },
   },
   {
-    id: 'zipCodesServiced',
+    id: 'zipcodes',
     label: 'Zip Codes Serviced',
     type: 'SelectMultipleFilter',
     group: 'secondary',
-    queryParamNames: ['pub_zipCodesServiced'],
+    queryParamNames: ['pub_zipcodes'],
     config: {
       // Optional modes: 'has_all', 'has_any'
       // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering

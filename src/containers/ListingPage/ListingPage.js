@@ -407,7 +407,7 @@ export class ListingPageComponent extends Component {
           <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
           <LayoutWrapperMain>
             <div>
-              <SectionImages
+              {/* <SectionImages
                 title={title}
                 listing={currentListing}
                 isOwnListing={isOwnListing}
@@ -421,7 +421,7 @@ export class ListingPageComponent extends Component {
                 onImageCarouselClose={() => this.setState({ imageCarouselOpen: false })}
                 handleViewPhotosClick={handleViewPhotosClick}
                 onManageDisableScrolling={onManageDisableScrolling}
-              />
+              /> */}
               <div className={css.contentContainer}>
                 <SectionAvatar user={currentAuthor} params={params} />
                 <div className={css.mainContent}>

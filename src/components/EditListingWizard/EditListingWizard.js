@@ -94,7 +94,7 @@ const tabCompleted = (tab, listing) => {
     case OPERATION_HOURS:
       return !!(publicData && publicData.operationHours);
     case PAYMENT_METHODS:
-      return !!(publicData && publicData.paymentMethods);
+      return !!(publicData && publicData.payments);
     case SERVICES:
       return !!(publicData && publicData.services);
     case CERTIFICATIONS:
@@ -104,7 +104,7 @@ const tabCompleted = (tab, listing) => {
         publicData.certifiedTechnicians
       );
     case ZIP_CODES:
-      return !!(publicData && publicData.zipCodesServiced);
+      return !!(publicData && publicData.zipcodes);
     default:
       return false;
   }

@@ -17,7 +17,7 @@
   }
 }
 
-.features {
+.payment_method {
   margin-bottom: 24px;
 
   @media (--viewportMedium) {

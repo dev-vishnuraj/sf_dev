@@ -49,7 +49,7 @@ const EditListingZipCodesFormComponent = props => (
         </p>
       ) : null;
 
-      const options = findOptionsForSelectFilter('zipCodesServiced', filterConfig);
+      const options = findOptionsForSelectFilter('zipcodes', filterConfig);
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}

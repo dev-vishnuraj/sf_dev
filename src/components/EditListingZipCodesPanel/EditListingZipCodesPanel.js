@@ -5,12 +5,12 @@ import { FormattedMessage } from '../../util/reactIntl';
 
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 
 import css from './EditListingZipCodesPanel.module.css';
 import { EditListingZipCodesForm } from '../../forms';
 
-const FEATURES_NAME = 'Zip Codes Serviced';
+const FEATURES_NAME = 'zipcodes';
 
 const EditListingZipCodesPanel = props => {
   const {
@@ -41,8 +41,8 @@ const EditListingZipCodesPanel = props => {
     <FormattedMessage id="EditListingZipCodesPanel.createListingTitle" />
   );
 
-  const zipCodesServiced = publicData && publicData.zipCodesServiced;
-  const initialValues = { zipCodesServiced };
+  const zipcodes = publicData && publicData.zipcodes;
+  const initialValues = { zipcodes };
 
   return (
     <div className={classes}>
@@ -52,10 +52,10 @@ const EditListingZipCodesPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { zipCodesServiced = [] } = values;
+          const { zipcodes = [] } = values;
 
           const updatedValues = {
-            publicData: { zipCodesServiced },
+            publicData: { zipcodes },
           };
           onSubmit(updatedValues);
         }}

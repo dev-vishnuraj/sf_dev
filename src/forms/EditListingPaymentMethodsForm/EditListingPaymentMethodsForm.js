@@ -28,7 +28,7 @@ const EditListingPaymentMethodsFormComponent = props => (
         updated,
         updateInProgress,
         fetchErrors,
-        filterConfig,
+        filterConfig
       } = formRenderProps;
 
       const classes = classNames(rootClassName || css.root, className);
@@ -49,13 +49,14 @@ const EditListingPaymentMethodsFormComponent = props => (
         </p>
       ) : null;
 
-      const options = findOptionsForSelectFilter('paymentMethods', filterConfig);
+      const options = findOptionsForSelectFilter('payments', filterConfig);
+      console.log("options ======= ", options)
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
           {errorMessageShowListing}
 
-          <FieldCheckboxGroup className={css.features} id={name} name={name} options={options} />
+          <FieldCheckboxGroup className={css.payment_method} id={name} name={name} options={options} />
 
           <Button
             className={css.submitButton}

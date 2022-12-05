@@ -51,14 +51,13 @@ const EditListingManufacturerPanel = props => {
         }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          const { manufacturer } = values;
-          const updateValues = {
-            publicData: {
-              manufacturer,
-            },
-          };
+          console.log("VALUES ========== ", values)
+          const { manufacturer = [] } = values;
 
-          onSubmit(updateValues);
+          const updatedValues = {
+            publicData: { manufacturer },
+          };
+          onSubmit(updatedValues);
         }}
         onChange={onChange}
         disabled={disabled}

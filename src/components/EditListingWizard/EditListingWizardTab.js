@@ -32,10 +32,10 @@ import EditListingCertificationsPanel from '../EditListingCertificationsPanel/Ed
 export const BIO = 'bio';
 export const MANUFACTURERS = 'manufacturers';
 export const OPERATION_HOURS = 'operationHours';
-export const PAYMENT_METHODS = 'payment_method';
+export const PAYMENT_METHODS = 'paymentMethods';
 export const SERVICES = 'services';
 export const CERTIFICATIONS = 'certifications';
-export const ZIP_CODES = 'zip_codes';
+export const ZIP_CODES = 'zipCodesServiced';
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
   BIO,
@@ -189,6 +189,7 @@ const EditListingWizardTab = props => {
       const submitButtonTranslationKey = isNewListingFlow
         ? 'EditListingWizard.saveNewManufacturers'
         : 'EditListingWizard.saveEditManufacturers';
+        console.log("PROPS ==== ", {...panelProps(MANUFACTURERS)})
       return (
         <EditListingManufacturerPanel
           {...panelProps(MANUFACTURERS)}

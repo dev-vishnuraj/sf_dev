@@ -2,11 +2,12 @@ import React from 'react';
 import { arrayOf, bool, func, shape, string } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
+import arrayMutators from 'final-form-arrays';
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import classNames from 'classnames';
 import { propTypes } from '../../util/types';
 import { maxLength, required, composeValidators } from '../../util/validators';
-import { Form, Button, FieldTextInput, FieldMultiTagsInput } from '../../components';
+import { Form, Button, FieldTextInput, FieldMultiTagsInput, FieldTagsInput } from '../../components';
 
 import css from './EditListingManufacturerForm.module.css';
 
@@ -15,6 +16,7 @@ const MANUFACTURER_LIMIT = 5;
 const EditListingManufacturerFormComponent = props => (
   <FinalForm
     {...props}
+    mutators={{ ...arrayMutators }}
     render={formRenderProps => {
       const {
         className,
@@ -54,7 +56,10 @@ const EditListingManufacturerFormComponent = props => (
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessageUpdateListing}
-          <FieldTextInput
+
+          <FieldTagsInput />
+
+          {/* <FieldTextInput
             id="manufacturer"
             name="manufacturer"
             className={css.manufacturer}
@@ -63,7 +68,7 @@ const EditListingManufacturerFormComponent = props => (
             placeholder={manufacturerPlaceholderMessage}
             validate={composeValidators(required(manufacturerRequiredMessage))}
             autoFocus
-          />
+          /> */}
           
           {/* <FieldMultiTagsInput id="manufacturer" name="manufacturer" placeholder={manufacturerPlaceholderMessage}/> */}
 
