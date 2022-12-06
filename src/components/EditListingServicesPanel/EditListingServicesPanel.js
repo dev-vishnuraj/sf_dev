@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
@@ -45,6 +45,15 @@ const EditListingServicesPanel = props => {
 
   const services = publicData && publicData.services;
   const initialValues = { services };
+  useEffect(() => {
+    if (initialValues?.services.length) {
+      setServicesArray(initialValues?.services);
+    }
+
+    return () => {
+      // second
+    };
+  }, [JSON.stringify(initialValues?.services)]);
 
   return (
     <div className={classes}>

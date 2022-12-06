@@ -35,6 +35,9 @@ const EditListingCertificationsFormComponent = props => (
       const certifiedTechniciansPlaceholderMessage = intl.formatMessage({
         id: 'EditListingCertificationsForm.certifiedTechniciansPlaceholder',
       });
+      const certifiedTechniciansRequiredMessage = intl.formatMessage({
+        id: 'EditListingCertificationsForm.certifiedTechniciansRequired',
+      });
 
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
       const errorMessageUpdateListing = updateListingError ? (
@@ -94,6 +97,7 @@ const EditListingCertificationsFormComponent = props => (
             label={certifiedTechniciansMessage}
             placeholder={certifiedTechniciansPlaceholderMessage}
             autoFocus
+            validate={composeValidators(required(certifiedTechniciansRequiredMessage))}
           />
 
           <Button

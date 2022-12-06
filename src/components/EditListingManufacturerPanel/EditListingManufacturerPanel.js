@@ -43,7 +43,6 @@ const EditListingManufacturerPanel = props => {
   );
   const manufacturer = publicData && publicData?.manufacturer;
   const initialValues = { manufacturer };
-  console.log('initialValues', initialValues);
   useEffect(() => {
     if (initialValues?.manufacturer.length) {
       setManufacturerArray(initialValues?.manufacturer);

@@ -2,6 +2,7 @@ import React from 'react';
 import TagsInput from 'react-tagsinput';
 import { Field } from 'react-final-form';
 import 'react-tagsinput/react-tagsinput.css';
+// import css from './FieldTagsInput.module.css';
 
 const FieldTagsInput = props => {
   const { tagArray, handleChange, placeholder, ...rest } = props;
