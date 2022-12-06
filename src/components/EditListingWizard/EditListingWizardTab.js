@@ -35,7 +35,7 @@ export const OPERATION_HOURS = 'operationHours';
 export const PAYMENT_METHODS = 'paymentMethods';
 export const SERVICES = 'services';
 export const CERTIFICATIONS = 'certifications';
-export const ZIP_CODES = 'zipCodesServiced';
+export const ZIP_CODES = 'zipcodes';
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
   BIO,

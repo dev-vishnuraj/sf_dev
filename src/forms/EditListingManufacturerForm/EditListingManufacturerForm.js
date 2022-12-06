@@ -24,7 +24,6 @@ const EditListingManufacturerFormComponent = props => {
   const handleChange = data => {
     setManufacturerArray(data);
   };
-console.log('manufacturerArray---',manufacturerArray);
   return (
     <FinalForm
       {...props}

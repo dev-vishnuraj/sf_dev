@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
 
 import { LISTING_STATE_DRAFT } from '../../util/types';
-import { ensureListing } from '../../util/data';
+import { ensureListing, ensureOwnListing } from '../../util/data';
 import { ListingLink } from '../../components';
 
 import css from './EditListingZipCodesPanel.module.css';
@@ -28,8 +28,10 @@ const EditListingZipCodesPanel = props => {
   } = props;
 
   const classes = classNames(rootClassName || css.root, className);
-  const currentListing = ensureListing(listing);
+  const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
+
+  const [zipCodesArray, setZipCodesArray] = useState([]);
 
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
@@ -41,21 +43,28 @@ const EditListingZipCodesPanel = props => {
     <FormattedMessage id="EditListingZipCodesPanel.createListingTitle" />
   );
 
-  const zipcodes = publicData && publicData.zipcodes;
+  const zipcodes = publicData && publicData?.zipcodes;
   const initialValues = { zipcodes };
+  console.log('publicData = ', publicData);
+  useEffect(() => {
+    if (initialValues?.zipcodes?.length) {
+      setZipCodesArray(initialValues?.zipcodes || []);
+    }
+
+    return () => {
+      // second
+    };
+  }, [JSON.stringify(initialValues?.zipcodes)]);
 
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingZipCodesForm
         className={css.form}
-        name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { zipcodes = [] } = values;
-
           const updatedValues = {
-            publicData: { zipcodes },
+            publicData: { zipcodes: zipCodesArray },
           };
           onSubmit(updatedValues);
         }}
@@ -66,6 +75,8 @@ const EditListingZipCodesPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        setZipCodesArray={setZipCodesArray}
+        zipCodesArray={zipCodesArray}
       />
     </div>
   );
@@ -76,8 +87,6 @@ EditListingZipCodesPanel.defaultProps = {
   className: null,
   listing: null,
 };
-
-const { bool, func, object, string } = PropTypes;
 
 EditListingZipCodesPanel.propTypes = {
   rootClassName: string,

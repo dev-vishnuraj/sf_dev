@@ -75,9 +75,7 @@ const tabLabel = (intl, tab) => {
  * @return true if tab / step is completed.
  */
 const tabCompleted = (tab, listing) => {
-  const {
-    publicData,
-  } = listing.attributes;
+  const { publicData } = listing.attributes;
 
   switch (tab) {
     case BIO:
@@ -92,17 +90,22 @@ const tabCompleted = (tab, listing) => {
     case MANUFACTURERS:
       return !!(publicData && publicData.manufacturer);
     case OPERATION_HOURS:
-      return !!(publicData && publicData.operationHours);
+      return !!(
+        publicData &&
+        publicData.operationHoursMonday &&
+        publicData.operationHoursTuesday &&
+        publicData.operationHoursWednesday &&
+        publicData.operationHoursThursday &&
+        publicData.operationHoursFriday &&
+        publicData.operationHoursSaturday &&
+        publicData.operationHoursSunday
+      );
     case PAYMENT_METHODS:
       return !!(publicData && publicData.payments);
     case SERVICES:
       return !!(publicData && publicData.services);
     case CERTIFICATIONS:
-      return !!(
-        publicData &&
-        publicData.cfesaCertified &&
-        publicData.certifiedTechnicians
-      );
+      return !!(publicData && publicData.cfesaCertified && publicData.certifiedTechnicians);
     case ZIP_CODES:
       return !!(publicData && publicData.zipcodes);
     default:

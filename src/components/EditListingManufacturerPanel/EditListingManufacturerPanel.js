@@ -6,7 +6,7 @@ import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
-import { EditListingBioForm, EditListingManufacturerForm } from '../../forms';
+import { EditListingManufacturerForm } from '../../forms';
 // import config from '../../config';
 
 import css from './EditListingManufacturerPanel.module.css';
@@ -44,9 +44,10 @@ const EditListingManufacturerPanel = props => {
   const manufacturer = publicData && publicData?.manufacturer;
   const initialValues = { manufacturer };
   useEffect(() => {
-    if (initialValues?.manufacturer.length) {
-      setManufacturerArray(initialValues?.manufacturer);
+    if (initialValues?.manufacturer?.length) {
+      setManufacturerArray(initialValues?.manufacturer || []);
     }
+    console.log("initialValues?.manufacturer ==== ", initialValues?.manufacturer)
 
     return () => {
       // second

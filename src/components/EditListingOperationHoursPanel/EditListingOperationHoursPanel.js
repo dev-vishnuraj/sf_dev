@@ -6,7 +6,11 @@ import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
-import { EditListingBioForm, EditListingoperationHoursForm, EditListingOperationHoursForm } from '../../forms';
+import {
+  EditListingBioForm,
+  EditListingoperationHoursForm,
+  EditListingOperationHoursForm,
+} from '../../forms';
 // import config from '../../config';
 
 import css from './EditListingOperationHoursPanel.module.css';
@@ -47,14 +51,34 @@ const EditListingOperationHoursPanel = props => {
       <EditListingOperationHoursForm
         className={css.form}
         initialValues={{
-          operationHours: publicData.operationHours,
+          operationHoursMonday: publicData.operationHoursMonday,
+          operationHoursTuesday: publicData.operationHoursTuesday,
+          operationHoursWednesday: publicData.operationHoursWednesday,
+          operationHoursThursday: publicData.operationHoursThursday,
+          operationHoursFriday: publicData.operationHoursFriday,
+          operationHoursSaturday: publicData.operationHoursSaturday,
+          operationHoursSunday: publicData.operationHoursSunday,
         }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          const { operationHours } = values;
+          const {
+            operationHoursMonday,
+            operationHoursTuesday,
+            operationHoursWednesday,
+            operationHoursThursday,
+            operationHoursFriday,
+            operationHoursSaturday,
+            operationHoursSunday,
+          } = values;
           const updateValues = {
             publicData: {
-              operationHours,
+              operationHoursMonday,
+              operationHoursTuesday,
+              operationHoursWednesday,
+              operationHoursThursday,
+              operationHoursFriday,
+              operationHoursSaturday,
+              operationHoursSunday,
             },
           };
 

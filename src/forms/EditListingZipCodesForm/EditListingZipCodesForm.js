@@ -7,70 +7,81 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { findOptionsForSelectFilter } from '../../util/search';
 import { propTypes } from '../../util/types';
 import config from '../../config';
-import { Button, FieldCheckboxGroup, Form } from '../../components';
+import { Button, FieldCheckboxGroup, FieldTagsInput, Form } from '../../components';
 
 import css from './EditListingZipCodesForm.module.css';
 
-const EditListingZipCodesFormComponent = props => (
-  <FinalForm
-    {...props}
-    mutators={{ ...arrayMutators }}
-    render={formRenderProps => {
-      const {
-        disabled,
-        ready,
-        rootClassName,
-        className,
-        name,
-        handleSubmit,
-        pristine,
-        saveActionMsg,
-        updated,
-        updateInProgress,
-        fetchErrors,
-        filterConfig,
-      } = formRenderProps;
+const EditListingZipCodesFormComponent = props => {
+  const { zipCodesArray, setZipCodesArray } = props;
+  const handleChange = data => {
+    setZipCodesArray(data);
+  };
 
-      const classes = classNames(rootClassName || css.root, className);
-      const submitReady = (updated && pristine) || ready;
-      const submitInProgress = updateInProgress;
-      const submitDisabled = disabled || submitInProgress;
+  console.log('zipCodesArray = ', zipCodesArray);
+  return (
+    <FinalForm
+      {...props}
+      mutators={{ ...arrayMutators }}
+      render={formRenderProps => {
+        const {
+          disabled,
+          ready,
+          rootClassName,
+          className,
+          name,
+          handleSubmit,
+          pristine,
+          saveActionMsg,
+          updated,
+          updateInProgress,
+          fetchErrors,
+          filterConfig,
+        } = formRenderProps;
 
-      const { updateListingError, showListingsError } = fetchErrors || {};
-      const errorMessage = updateListingError ? (
-        <p className={css.error}>
-          <FormattedMessage id="EditListingZipCodesForm.updateFailed" />
-        </p>
-      ) : null;
+        const classes = classNames(rootClassName || css.root, className);
+        const submitReady = (updated && pristine) || ready;
+        const submitInProgress = updateInProgress;
+        const submitDisabled = disabled || submitInProgress;
 
-      const errorMessageShowListing = showListingsError ? (
-        <p className={css.error}>
-          <FormattedMessage id="EditListingZipCodesForm.showListingFailed" />
-        </p>
-      ) : null;
+        const { updateListingError, showListingsError } = fetchErrors || {};
+        const errorMessage = updateListingError ? (
+          <p className={css.error}>
+            <FormattedMessage id="EditListingZipCodesForm.updateFailed" />
+          </p>
+        ) : null;
 
-      const options = findOptionsForSelectFilter('zipcodes', filterConfig);
-      return (
-        <Form className={classes} onSubmit={handleSubmit}>
-          {errorMessage}
-          {errorMessageShowListing}
+        const errorMessageShowListing = showListingsError ? (
+          <p className={css.error}>
+            <FormattedMessage id="EditListingZipCodesForm.showListingFailed" />
+          </p>
+        ) : null;
+        return (
+          <Form className={classes} onSubmit={handleSubmit}>
+            {errorMessage}
+            {errorMessageShowListing}
 
-          <FieldCheckboxGroup className={css.features} id={name} name={name} options={options} />
-
-          <Button
-            className={css.submitButton}
-            type="submit"
-            inProgress={submitInProgress}
-            disabled={submitDisabled}
-            ready={submitReady}
-          >
-            {saveActionMsg}
-          </Button>
-        </Form>
-      );
-    }}
-  />
-);
+            <FieldTagsInput
+              id="zipcodes"
+              name="zipcodes"
+              placeholder="Add New"
+              handleChange={handleChange}
+              tagArray={zipCodesArray}
+            />
+            <Button
+              className={css.submitButton}
+              type="submit"
+              inProgress={submitInProgress}
+              disabled={submitDisabled}
+              ready={submitReady}
+            >
+              {saveActionMsg}
+            </Button>
+          </Form>
+        );
+      }}
+    />
+  );
+};
 
 EditListingZipCodesFormComponent.defaultProps = {
   rootClassName: null,

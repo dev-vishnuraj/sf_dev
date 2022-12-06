@@ -30,12 +30,74 @@ const EditListingOperationHoursFormComponent = props => (
         fetchErrors,
       } = formRenderProps;
 
-      const operationHoursMessage = intl.formatMessage({ id: 'EditListingOperationHoursForm.OperationHours' });
-      const operationHoursPlaceholderMessage = intl.formatMessage({
-        id: 'EditListingOperationHoursForm.OperationHoursPlaceholder',
+      const operationHoursMondayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursMonday',
       });
-      const operationHoursRequiredMessage = intl.formatMessage({
-        id: 'EditListingOperationHoursForm.OperationHoursRequired',
+      const operationHoursMondayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderMonday',
+      });
+      const operationHoursMondayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredMonday',
+      });
+
+      const operationHoursTuesdayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursTuesday',
+      });
+      const operationHoursTuesdayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderTuesday',
+      });
+      const operationHoursTuesdayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredTuesday',
+      });
+
+      const operationHoursWednesdayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursWednesday',
+      });
+      const operationHoursWednesdayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderWednesday',
+      });
+      const operationHoursWednesdayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredWednesday',
+      });
+
+      const operationHoursThursdayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursThursday',
+      });
+      const operationHoursThursdayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderThursday',
+      });
+      const operationHoursThursdayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredThursday',
+      });
+
+      const operationHoursFridayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursFriday',
+      });
+      const operationHoursFridayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderFriday',
+      });
+      const operationHoursFridayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredFriday',
+      });
+
+      const operationHoursSaturdayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursSaturday',
+      });
+      const operationHoursSaturdayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderSaturday',
+      });
+      const operationHoursSaturdayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredSaturday',
+      });
+
+      const operationHoursSundayMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursSunday',
+      });
+      const operationHoursSundayPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursPlaceholderSunday',
+      });
+      const operationHoursSundayRequiredMessage = intl.formatMessage({
+        id: 'EditListingOperationHoursForm.OperationHoursRequiredSunday',
       });
 
       const { updateListingError } = fetchErrors || {};
@@ -49,22 +111,87 @@ const EditListingOperationHoursFormComponent = props => (
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
-      
-      console.log("11111111111111111111111111111")
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessageUpdateListing}
           <FieldTextInput
-            id="operationHours"
-            name="operationHours"
+            id="operationHoursMonday"
+            name="operationHoursMonday"
             className={css.operationHours}
             type="text"
-            label={operationHoursMessage}
-            placeholder={operationHoursPlaceholderMessage}
-            validate={composeValidators(required(operationHoursRequiredMessage))}
+            label={operationHoursMondayMessage}
+            placeholder={operationHoursMondayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursMondayRequiredMessage))}
             autoFocus
           />
-          
+
+          <FieldTextInput
+            id="operationHoursTuesday"
+            name="operationHoursTuesday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursTuesdayMessage}
+            placeholder={operationHoursTuesdayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursTuesdayRequiredMessage))}
+            autoFocus
+          />
+
+          <FieldTextInput
+            id="operationHoursWednesday"
+            name="operationHoursWednesday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursWednesdayMessage}
+            placeholder={operationHoursWednesdayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursWednesdayRequiredMessage))}
+            autoFocus
+          />
+
+          <FieldTextInput
+            id="operationHoursThursday"
+            name="operationHoursThursday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursThursdayMessage}
+            placeholder={operationHoursThursdayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursThursdayRequiredMessage))}
+            autoFocus
+          />
+
+          <FieldTextInput
+            id="operationHoursFriday"
+            name="operationHoursFriday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursFridayMessage}
+            placeholder={operationHoursFridayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursFridayRequiredMessage))}
+            autoFocus
+          />
+
+          <FieldTextInput
+            id="operationHoursSaturday"
+            name="operationHoursSaturday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursSaturdayMessage}
+            placeholder={operationHoursSaturdayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursSaturdayRequiredMessage))}
+            autoFocus
+          />
+
+          <FieldTextInput
+            id="operationHoursSunday"
+            name="operationHoursSunday"
+            className={css.operationHours}
+            type="text"
+            label={operationHoursSundayMessage}
+            placeholder={operationHoursSundayPlaceholderMessage}
+            validate={composeValidators(required(operationHoursSundayRequiredMessage))}
+            autoFocus
+          />
+
           {/* <FieldMultiTagsInput id="operationHours" name="operationHours" placeholder={operationHoursPlaceholderMessage}/> */}
 
           <Button

@@ -46,10 +46,9 @@ const EditListingServicesPanel = props => {
   const services = publicData && publicData.services;
   const initialValues = { services };
   useEffect(() => {
-    if (initialValues?.services.length) {
-      setServicesArray(initialValues?.services);
+    if (initialValues?.services?.length) {
+      setServicesArray(initialValues?.services || []);
     }
-
     return () => {
       // second
     };
