@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import TagsInput from 'react-tagsinput';
 import { Field } from 'react-final-form';
-import 'react-tagsinput/react-tagsinput.css';
-// import './FieldTagsInput.module.css';
+// import 'react-tagsinput/react-tagsinput.css';
+import './style.css';
 
 const FieldTagsInput = props => {
   const { tagArray, handleChange, placeholder, ...rest } = props;
