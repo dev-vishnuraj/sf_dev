@@ -10,10 +10,16 @@ import {
 import { ensureListing } from '../../util/data';
 import { createResourceLocatorString } from '../../util/routes';
 import {
-  EditListingBioPanel
+  EditListingBioPanel,
+  EditListingManufacturerPanel,
+  EditListingOperationHoursPanel,
+  EditListingPaymentMethodsPanel,
+  EditListingServicesPanel,
+  EditListingZipCodesPanel
 } from '../../components';
 
 import css from './EditListingWizard.module.css';
+import EditListingCertificationsPanel from '../EditListingCertificationsPanel/EditListingCertificationsPanel';
 
 // export const AVAILABILITY = 'availability';
 // export const DESCRIPTION = 'description';
@@ -24,16 +30,16 @@ import css from './EditListingWizard.module.css';
 // export const PHOTOS = 'photos';
 
 export const BIO = 'bio';
-export const BRANDS = 'brands';
-export const OPERATION_HOURS = 'operation_hours';
-export const PAYMENT_METHODS = 'payment_method';
+export const MANUFACTURERS = 'manufacturers';
+export const OPERATION_HOURS = 'operationHours';
+export const PAYMENT_METHODS = 'paymentMethods';
 export const SERVICES = 'services';
 export const CERTIFICATIONS = 'certifications';
-export const ZIP_CODES = 'zip_codes';
+export const ZIP_CODES = 'zipcodes';
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
   BIO,
-  BRANDS,
+  MANUFACTURERS,
   OPERATION_HOURS,
   PAYMENT_METHODS,
   SERVICES,
@@ -179,15 +185,18 @@ const EditListingWizardTab = props => {
         />
       );
     }
-    case BRANDS: {
+    case MANUFACTURERS: {
       const submitButtonTranslationKey = isNewListingFlow
-        ? 'EditListingWizard.saveNewBrands'
-        : 'EditListingWizard.saveEditBrands';
+        ? 'EditListingWizard.saveNewManufacturers'
+        : 'EditListingWizard.saveEditManufacturers';
+        console.log("PROPS ==== ", {...panelProps(MANUFACTURERS)})
       return (
-        <EditListingBioPanel
-          {...panelProps(BRANDS)}
+        <EditListingManufacturerPanel
+          {...panelProps(MANUFACTURERS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
+          
           onSubmit={values => {
+            console.log("VALUES ======= ", values)
             onCompleteEditListingWizardTab(tab, values);
           }}
         />
@@ -198,7 +207,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewOperationHours'
         : 'EditListingWizard.saveEditOperationHours';
       return (
-        <EditListingBioPanel
+        <EditListingOperationHoursPanel
           {...panelProps(OPERATION_HOURS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -212,7 +221,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewPaymentMethods'
         : 'EditListingWizard.saveEditPaymentMethods';
       return (
-        <EditListingBioPanel
+        <EditListingPaymentMethodsPanel
           {...panelProps(PAYMENT_METHODS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -226,7 +235,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewServices'
         : 'EditListingWizard.saveEditServices';
       return (
-        <EditListingBioPanel
+        <EditListingServicesPanel
           {...panelProps(SERVICES)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -240,7 +249,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewCertifications'
         : 'EditListingWizard.saveEditCertifications';
       return (
-        <EditListingBioPanel
+        <EditListingCertificationsPanel
           {...panelProps(CERTIFICATIONS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
@@ -254,7 +263,7 @@ const EditListingWizardTab = props => {
         ? 'EditListingWizard.saveNewZipCodes'
         : 'EditListingWizard.saveEditZipCodes';
       return (
-        <EditListingBioPanel
+        <EditListingZipCodesPanel
           {...panelProps(ZIP_CODES)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {

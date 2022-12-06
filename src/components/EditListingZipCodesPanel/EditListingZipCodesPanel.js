@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
-import { ensureOwnListing } from '../../util/data';
-// import { findOptionsForSelectFilter } from '../../util/search';
+
 import { LISTING_STATE_DRAFT } from '../../util/types';
+import { ensureListing, ensureOwnListing } from '../../util/data';
 import { ListingLink } from '../../components';
-import { EditListingBioForm } from '../../forms';
-// import config from '../../config';
 
-import css from './EditListingBioPanel.module.css';
+import css from './EditListingZipCodesPanel.module.css';
+import { EditListingZipCodesForm } from '../../forms';
 
-const EditListingBioPanel = props => {
+const FEATURES_NAME = 'zipcodes';
+
+const EditListingZipCodesPanel = props => {
   const {
-    className,
     rootClassName,
+    className,
     listing,
     disabled,
     ready,
@@ -30,77 +31,66 @@ const EditListingBioPanel = props => {
   const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
 
+  const [zipCodesArray, setZipCodesArray] = useState([]);
+
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
-      id="EditListingBioPanel.title"
+      id="EditListingZipCodesPanel.title"
       values={{ listingTitle: <ListingLink listing={listing} /> }}
     />
   ) : (
-    <FormattedMessage id="EditListingBioPanel.createListingTitle" />
+    <FormattedMessage id="EditListingZipCodesPanel.createListingTitle" />
   );
 
-  // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
+  const zipcodes = publicData && publicData?.zipcodes;
+  const initialValues = { zipcodes };
+  console.log('publicData = ', publicData);
+  useEffect(() => {
+    if (initialValues?.zipcodes?.length) {
+      setZipCodesArray(initialValues?.zipcodes || []);
+    }
+
+    return () => {
+      // second
+    };
+  }, [JSON.stringify(initialValues?.zipcodes)]);
+
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
-      <EditListingBioForm
+      <EditListingZipCodesForm
         className={css.form}
-        initialValues={{
-          title: 'Profile',
-          description: 'Company Profile',
-          companyName: publicData.companyName,
-          companyEmail: publicData.companyEmail,
-          companyPhone: publicData.companyPhone,
-          companyAddress: publicData.companyAddress,
-          companyDescription: publicData.companyDescription,
-        }}
-        saveActionMsg={submitButtonText}
+        initialValues={initialValues}
         onSubmit={values => {
-          const {
-            title,
-            description,
-            companyName,
-            companyEmail,
-            companyPhone,
-            companyAddress,
-            companyDescription,
-          } = values;
-          const updateValues = {
-            title,
-            description,
-            publicData: {
-              companyName,
-              companyEmail,
-              companyPhone,
-              companyAddress,
-              companyDescription,
-            },
+          const updatedValues = {
+            publicData: { zipcodes: zipCodesArray },
           };
-
-          onSubmit(updateValues);
+          onSubmit(updatedValues);
         }}
         onChange={onChange}
+        saveActionMsg={submitButtonText}
         disabled={disabled}
         ready={ready}
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        setZipCodesArray={setZipCodesArray}
+        zipCodesArray={zipCodesArray}
       />
     </div>
   );
 };
 
-EditListingBioPanel.defaultProps = {
-  className: null,
+EditListingZipCodesPanel.defaultProps = {
   rootClassName: null,
-  errors: null,
+  className: null,
   listing: null,
 };
 
-EditListingBioPanel.propTypes = {
-  className: string,
+EditListingZipCodesPanel.propTypes = {
   rootClassName: string,
+  className: string,
 
   // We cannot use propTypes.listing since the listing might be a draft.
   listing: object,
@@ -115,4 +105,4 @@ EditListingBioPanel.propTypes = {
   errors: object.isRequired,
 };
 
-export default EditListingBioPanel;
+export default EditListingZipCodesPanel;

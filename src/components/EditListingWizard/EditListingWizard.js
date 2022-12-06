@@ -16,7 +16,7 @@ import { NamedRedirect, Tabs } from '../../components';
 
 import EditListingWizardTab, {
   BIO,
-  BRANDS,
+  MANUFACTURERS,
   OPERATION_HOURS,
   PAYMENT_METHODS,
   SERVICES,
@@ -34,7 +34,7 @@ import css from './EditListingWizard.module.css';
 // and listing publishing happens after last panel.
 export const TABS = [
   BIO,
-  BRANDS,
+  MANUFACTURERS,
   OPERATION_HOURS,
   PAYMENT_METHODS,
   SERVICES,
@@ -49,8 +49,8 @@ const tabLabel = (intl, tab) => {
   let key = null;
   if (tab === BIO) {
     key = 'EditListingWizard.tabLabelBio';
-  } else if (tab === BRANDS) {
-    key = 'EditListingWizard.tabLabelBrands';
+  } else if (tab === MANUFACTURERS) {
+    key = 'EditListingWizard.tabLabelManufacturers';
   } else if (tab === OPERATION_HOURS) {
     key = 'EditListingWizard.tabLabelOperationHours';
   } else if (tab === PAYMENT_METHODS) {
@@ -75,9 +75,7 @@ const tabLabel = (intl, tab) => {
  * @return true if tab / step is completed.
  */
 const tabCompleted = (tab, listing) => {
-  const {
-    publicData,
-  } = listing.attributes;
+  const { publicData } = listing.attributes;
 
   switch (tab) {
     case BIO:
@@ -89,22 +87,27 @@ const tabCompleted = (tab, listing) => {
         publicData.companyAddress &&
         publicData.companyDescription
       );
-    case BRANDS:
-      return !!(publicData && publicData.brands);
+    case MANUFACTURERS:
+      return !!(publicData && publicData.manufacturer);
     case OPERATION_HOURS:
-      return !!(publicData && publicData.operation_hours);
+      return !!(
+        publicData &&
+        publicData.operationHoursMonday &&
+        publicData.operationHoursTuesday &&
+        publicData.operationHoursWednesday &&
+        publicData.operationHoursThursday &&
+        publicData.operationHoursFriday &&
+        publicData.operationHoursSaturday &&
+        publicData.operationHoursSunday
+      );
     case PAYMENT_METHODS:
-      return !!(publicData && publicData.payment_methods);
+      return !!(publicData && publicData.payments);
     case SERVICES:
       return !!(publicData && publicData.services);
     case CERTIFICATIONS:
-      return !!(
-        publicData &&
-        publicData.certifications &&
-        publicData.number_of_certified_technicians
-      );
+      return !!(publicData && publicData.cfesaCertified && publicData.certifiedTechnicians);
     case ZIP_CODES:
-      return !!(publicData && publicData.zip_codes);
+      return !!(publicData && publicData.zipcodes);
     default:
       return false;
   }

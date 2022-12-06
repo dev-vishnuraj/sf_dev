@@ -1,3 +1,4 @@
+
 import * as custom from './marketplace-custom-config.js';
 import defaultLocationSearches from './default-location-searches';
 import { defaultMCC, stripePublishableKey, stripeCountryDetails } from './stripe-config';
@@ -10,7 +11,7 @@ const dev = process.env.REACT_APP_ENV === 'development';
 // Currently, only translation.json is available.
 // Note: the path must match the path defined in Asset Delivery API
 const appCdnAssets = {
-  translations: 'content/translations.json',
+  // translations: 'content/translations.json',
 };
 
 // If you want to change the language, remember to also change the
@@ -101,7 +102,7 @@ const streetAddress = 'Bulevardi 14';
 const canonicalRootURL = process.env.REACT_APP_CANONICAL_ROOT_URL;
 
 // Site title is needed in meta tags (bots and social media sharing reads those)
-const siteTitle = 'Saunatime';
+const siteTitle = 'Service finder';
 
 // Twitter handle is needed in meta tags (twitter:site). Start it with '@' character
 const siteTwitterHandle = '@sharetribe';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
@@ -6,12 +6,12 @@ import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
-import { EditListingBioForm } from '../../forms';
+import { EditListingManufacturerForm } from '../../forms';
 // import config from '../../config';
 
-import css from './EditListingBioPanel.module.css';
+import css from './EditListingManufacturerPanel.module.css';
 
-const EditListingBioPanel = props => {
+const EditListingManufacturerPanel = props => {
   const {
     className,
     rootClassName,
@@ -30,55 +30,43 @@ const EditListingBioPanel = props => {
   const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
 
+  const [manufacturerArray, setManufacturerArray] = useState([]);
+
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
-      id="EditListingBioPanel.title"
+      id="EditListingManufacturerPanel.title"
       values={{ listingTitle: <ListingLink listing={listing} /> }}
     />
   ) : (
-    <FormattedMessage id="EditListingBioPanel.createListingTitle" />
+    <FormattedMessage id="EditListingManufacturerPanel.createListingTitle" />
   );
+  const manufacturer = publicData && publicData?.manufacturer;
+  const initialValues = { manufacturer };
+  useEffect(() => {
+    if (initialValues?.manufacturer?.length) {
+      setManufacturerArray(initialValues?.manufacturer || []);
+    }
+    console.log("initialValues?.manufacturer ==== ", initialValues?.manufacturer)
+
+    return () => {
+      // second
+    };
+  }, [JSON.stringify(initialValues?.manufacturer)]);
 
   // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
-      <EditListingBioForm
+      <EditListingManufacturerForm
         className={css.form}
-        initialValues={{
-          title: 'Profile',
-          description: 'Company Profile',
-          companyName: publicData.companyName,
-          companyEmail: publicData.companyEmail,
-          companyPhone: publicData.companyPhone,
-          companyAddress: publicData.companyAddress,
-          companyDescription: publicData.companyDescription,
-        }}
+        initialValues={initialValues}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          const {
-            title,
-            description,
-            companyName,
-            companyEmail,
-            companyPhone,
-            companyAddress,
-            companyDescription,
-          } = values;
-          const updateValues = {
-            title,
-            description,
-            publicData: {
-              companyName,
-              companyEmail,
-              companyPhone,
-              companyAddress,
-              companyDescription,
-            },
+          const updatedValues = {
+            publicData: { manufacturer: manufacturerArray },
           };
-
-          onSubmit(updateValues);
+          onSubmit(updatedValues);
         }}
         onChange={onChange}
         disabled={disabled}
@@ -86,19 +74,21 @@ const EditListingBioPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        setManufacturerArray={setManufacturerArray}
+        manufacturerArray={manufacturerArray}
       />
     </div>
   );
 };
 
-EditListingBioPanel.defaultProps = {
+EditListingManufacturerPanel.defaultProps = {
   className: null,
   rootClassName: null,
   errors: null,
   listing: null,
 };
 
-EditListingBioPanel.propTypes = {
+EditListingManufacturerPanel.propTypes = {
   className: string,
   rootClassName: string,
 
@@ -115,4 +105,4 @@ EditListingBioPanel.propTypes = {
   errors: object.isRequired,
 };
 
-export default EditListingBioPanel;
+export default EditListingManufacturerPanel;

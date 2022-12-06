@@ -6,12 +6,16 @@ import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ListingLink } from '../../components';
-import { EditListingBioForm } from '../../forms';
+import {
+  EditListingBioForm,
+  EditListingoperationHoursForm,
+  EditListingOperationHoursForm,
+} from '../../forms';
 // import config from '../../config';
 
-import css from './EditListingBioPanel.module.css';
+import css from './EditListingOperationHoursPanel.module.css';
 
-const EditListingBioPanel = props => {
+const EditListingOperationHoursPanel = props => {
   const {
     className,
     rootClassName,
@@ -33,48 +37,48 @@ const EditListingBioPanel = props => {
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
-      id="EditListingBioPanel.title"
+      id="EditListingOperationHoursPanel.title"
       values={{ listingTitle: <ListingLink listing={listing} /> }}
     />
   ) : (
-    <FormattedMessage id="EditListingBioPanel.createListingTitle" />
+    <FormattedMessage id="EditListingOperationHoursPanel.createListingTitle" />
   );
 
   // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
-      <EditListingBioForm
+      <EditListingOperationHoursForm
         className={css.form}
         initialValues={{
-          title: 'Profile',
-          description: 'Company Profile',
-          companyName: publicData.companyName,
-          companyEmail: publicData.companyEmail,
-          companyPhone: publicData.companyPhone,
-          companyAddress: publicData.companyAddress,
-          companyDescription: publicData.companyDescription,
+          operationHoursMonday: publicData.operationHoursMonday,
+          operationHoursTuesday: publicData.operationHoursTuesday,
+          operationHoursWednesday: publicData.operationHoursWednesday,
+          operationHoursThursday: publicData.operationHoursThursday,
+          operationHoursFriday: publicData.operationHoursFriday,
+          operationHoursSaturday: publicData.operationHoursSaturday,
+          operationHoursSunday: publicData.operationHoursSunday,
         }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
           const {
-            title,
-            description,
-            companyName,
-            companyEmail,
-            companyPhone,
-            companyAddress,
-            companyDescription,
+            operationHoursMonday,
+            operationHoursTuesday,
+            operationHoursWednesday,
+            operationHoursThursday,
+            operationHoursFriday,
+            operationHoursSaturday,
+            operationHoursSunday,
           } = values;
           const updateValues = {
-            title,
-            description,
             publicData: {
-              companyName,
-              companyEmail,
-              companyPhone,
-              companyAddress,
-              companyDescription,
+              operationHoursMonday,
+              operationHoursTuesday,
+              operationHoursWednesday,
+              operationHoursThursday,
+              operationHoursFriday,
+              operationHoursSaturday,
+              operationHoursSunday,
             },
           };
 
@@ -91,14 +95,14 @@ const EditListingBioPanel = props => {
   );
 };
 
-EditListingBioPanel.defaultProps = {
+EditListingOperationHoursPanel.defaultProps = {
   className: null,
   rootClassName: null,
   errors: null,
   listing: null,
 };
 
-EditListingBioPanel.propTypes = {
+EditListingOperationHoursPanel.propTypes = {
   className: string,
   rootClassName: string,
 
@@ -115,4 +119,4 @@ EditListingBioPanel.propTypes = {
   errors: object.isRequired,
 };
 
-export default EditListingBioPanel;
+export default EditListingOperationHoursPanel;

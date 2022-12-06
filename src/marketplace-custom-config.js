@@ -93,6 +93,123 @@ export const filters = [
     },
   },
   {
+    id: 'payments',
+    label: 'Payment Methods',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_payments'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {
+          key: 'cash',
+          label: 'Cash',
+        },
+        {
+          key: 'cheque',
+          label: 'Cheque',
+        },
+        {
+          key: 'paypal',
+          label: 'Paypal',
+        },
+        {
+          key: 'venmo',
+          label: 'Venmo',
+        },
+        {
+          key: 'zelle',
+          label: 'Zelle',
+        },
+      ],
+    },
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_services'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {
+          key: 'service1',
+          label: 'Service One',
+        },
+        {
+          key: 'service2',
+          label: 'Service two',
+        },
+        {
+          key: 'service3',
+          label: 'Service three',
+        },
+        {
+          key: 'service4',
+          label: 'Service four',
+        },
+        {
+          key: 'service5',
+          label: 'Service five',
+        },
+      ],
+    },
+  },
+  {
+    id: 'zipcodes',
+    label: 'Zip Codes Serviced',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_zipcodes'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {
+          key: '123567',
+          label: '123567',
+        },
+        {
+          key: '98397',
+          label: '98397',
+        },
+        {
+          key: '97314',
+          label: '97314',
+        },
+        {
+          key: '797389',
+          label: '797389',
+        },
+        {
+          key: '916389',
+          label: '916389',
+        },
+      ],
+    },
+  },
+  {
     id: 'amenities',
     label: 'Amenities',
     type: 'SelectMultipleFilter',
