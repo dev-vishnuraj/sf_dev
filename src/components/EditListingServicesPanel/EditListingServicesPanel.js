@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
@@ -6,7 +6,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
 import { EditListingPaymentMethodsForm, EditListingServicesForm } from '../../forms';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 
 import css from './EditListingServicesPanel.module.css';
 
@@ -31,6 +31,8 @@ const EditListingServicesPanel = props => {
   const currentListing = ensureListing(listing);
   const { publicData } = currentListing.attributes;
 
+  const [servicesArray, setServicesArray] = useState([]);
+
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
@@ -52,10 +54,8 @@ const EditListingServicesPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { services = [] } = values;
-
           const updatedValues = {
-            publicData: { services },
+            publicData: { services: servicesArray },
           };
           onSubmit(updatedValues);
         }}
@@ -66,6 +66,8 @@ const EditListingServicesPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        setServicesArray={setServicesArray}
+        servicesArray={servicesArray}
       />
     </div>
   );
@@ -82,7 +84,7 @@ const { bool, func, object, string } = PropTypes;
 EditListingServicesPanel.propTypes = {
   rootClassName: string,
   className: string,
-
+  // intl: intlShape.isRequired,
   // We cannot use propTypes.listing since the listing might be a draft.
   listing: object,
 

@@ -3,74 +3,90 @@ import { bool, func, shape, string } from 'prop-types';
 import classNames from 'classnames';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import { FormattedMessage } from '../../util/reactIntl';
+import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import { findOptionsForSelectFilter } from '../../util/search';
 import { propTypes } from '../../util/types';
 import config from '../../config';
-import { Button, FieldCheckboxGroup, Form } from '../../components';
+import { Button, FieldCheckboxGroup, FieldTagsInput, Form } from '../../components';
 
 import css from './EditListingServicesForm.module.css';
 
-const EditListingServicesFormComponent = props => (
-  <FinalForm
-    {...props}
-    mutators={{ ...arrayMutators }}
-    render={formRenderProps => {
-      const {
-        disabled,
-        ready,
-        rootClassName,
-        className,
-        name,
-        handleSubmit,
-        pristine,
-        saveActionMsg,
-        updated,
-        updateInProgress,
-        fetchErrors,
-        filterConfig,
-      } = formRenderProps;
+const EditListingServicesFormComponent = props => {
+  const { servicesArray, setServicesArray } = props;
+  const handleChange = data => {
+    setServicesArray(data);
+  };
+  return (
+    <FinalForm
+      {...props}
+      mutators={{ ...arrayMutators }}
+      render={formRenderProps => {
+        const {
+          disabled,
+          ready,
+          rootClassName,
+          className,
+          name,
+          handleSubmit,
+          pristine,
+          saveActionMsg,
+          intl,
+          updated,
+          updateInProgress,
+          fetchErrors,
+          filterConfig,
+        } = formRenderProps;
 
-      const classes = classNames(rootClassName || css.root, className);
-      const submitReady = (updated && pristine) || ready;
-      const submitInProgress = updateInProgress;
-      const submitDisabled = disabled || submitInProgress;
+        // const errorMessageUpdateListing = updateListingError ? (
+        //   <p className={css.error}>
+        //     <FormattedMessage id="EditListingManufacturerForm.profileUpdateFailed" />
+        //   </p>
+        // ) : null;
+        const classes = classNames(rootClassName || css.root, className);
+        const submitReady = (updated && pristine) || ready;
+        const submitInProgress = updateInProgress;
+        const submitDisabled = disabled || submitInProgress;
 
-      const { updateListingError, showListingsError } = fetchErrors || {};
-      const errorMessage = updateListingError ? (
-        <p className={css.error}>
-          <FormattedMessage id="EditListingServicesForm.updateFailed" />
-        </p>
-      ) : null;
 
-      const errorMessageShowListing = showListingsError ? (
-        <p className={css.error}>
-          <FormattedMessage id="EditListingServicesForm.showListingFailed" />
-        </p>
-      ) : null;
+        const { updateListingError, showListingsError } = fetchErrors || {};
+        const errorMessage = updateListingError ? (
+          <p className={css.error}>
+            <FormattedMessage id="EditListingServicesForm.updateFailed" />
+          </p>
+        ) : null;
 
-      const options = findOptionsForSelectFilter('services', filterConfig);
-      return (
-        <Form className={classes} onSubmit={handleSubmit}>
-          {errorMessage}
-          {errorMessageShowListing}
+        const errorMessageShowListing = showListingsError ? (
+          <p className={css.error}>
+            <FormattedMessage id="EditListingServicesForm.showListingFailed" />
+          </p>
+        ) : null;
 
-          <FieldCheckboxGroup className={css.features} id={name} name={name} options={options} />
+        return (
+          <Form className={classes} onSubmit={handleSubmit}>
+            {/* {errorMessageUpdateListing} */}
 
-          <Button
-            className={css.submitButton}
-            type="submit"
-            inProgress={submitInProgress}
-            disabled={submitDisabled}
-            ready={submitReady}
-          >
-            {saveActionMsg}
-          </Button>
-        </Form>
-      );
-    }}
-  />
-);
+            <FieldTagsInput
+              id="services"
+              name="services"
+              placeholder="Add New"
+              handleChange={handleChange}
+              tagArray={servicesArray}
+            />
+            <Button
+              className={css.submitButton}
+              type="submit"
+              inProgress={submitInProgress}
+              disabled={submitDisabled}
+              ready={submitReady}
+            >
+              {saveActionMsg}
+            </Button>
+          </Form>
+        );
+      }}
+    />
+  );
+};
 
 EditListingServicesFormComponent.defaultProps = {
   rootClassName: null,
@@ -81,6 +97,7 @@ EditListingServicesFormComponent.defaultProps = {
 
 EditListingServicesFormComponent.propTypes = {
   rootClassName: string,
+  // intl: intlShape.isRequired,
   className: string,
   name: string.isRequired,
   onSubmit: func.isRequired,

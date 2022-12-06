@@ -5,7 +5,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 import { EditListingBioForm } from '../../forms';
 // import config from '../../config';
 

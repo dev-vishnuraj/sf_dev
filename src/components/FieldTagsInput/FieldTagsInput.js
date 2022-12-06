@@ -1,25 +1,27 @@
-import React from 'react'
-import TagsInput from 'react-tagsinput'
+import React from 'react';
+import TagsInput from 'react-tagsinput';
+import { Field } from 'react-final-form';
+import 'react-tagsinput/react-tagsinput.css';
 
-import 'react-tagsinput/react-tagsinput.css'
+const FieldTagsInput = props => {
+  const { tagArray, handleChange, placeholder, ...rest } = props;
+  {
+    const tag = () => (
+      <TagsInput
+        value={tagArray}
+        onChange={handleChange}
+        addKeys={[13]}
+        inputProps={{
+          className: 'react-tagsinput-input',
+          placeholder: placeholder,
+          id: rest.id,
+          name: rest.name,
+        }}
+      />
+    );
 
-class FieldTagsInput extends React.Component {
-  constructor() {
-    super()
-    this.state = {manufacturer: []}
+    return <Field component={tag} {...rest} />;
   }
-
-  handleChange = (manufacturer) => {
-    this.setState({manufacturer})
-  }
-
-  render() {
-    console.log("AAAAAAAAA", this.state.manufacturer)
-    return <TagsInput value={this.state.manufacturer} onChange={this.handleChange} addKeys={[13]} inputProps={{
-      className: 'react-tagsinput-input',
-      placeholder: 'Add new',
-    }} />
-  }
-}
+};
 
 export default FieldTagsInput;

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
 import { ensureOwnListing } from '../../util/data';
 // import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 import { EditListingBioForm, EditListingManufacturerForm } from '../../forms';
 // import config from '../../config';
 
@@ -30,6 +30,8 @@ const EditListingManufacturerPanel = props => {
   const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
 
+  const [manufacturerArray, setManufacturerArray] = useState([]);
+
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
@@ -39,6 +41,18 @@ const EditListingManufacturerPanel = props => {
   ) : (
     <FormattedMessage id="EditListingManufacturerPanel.createListingTitle" />
   );
+  const manufacturer = publicData && publicData?.manufacturer;
+  const initialValues = { manufacturer };
+  console.log('initialValues', initialValues);
+  useEffect(() => {
+    if (initialValues?.manufacturer.length) {
+      setManufacturerArray(initialValues?.manufacturer);
+    }
+
+    return () => {
+      // second
+    };
+  }, [JSON.stringify(initialValues?.manufacturer)]);
 
   // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
   return (
@@ -46,16 +60,11 @@ const EditListingManufacturerPanel = props => {
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingManufacturerForm
         className={css.form}
-        initialValues={{
-          manufacturer: publicData.manufacturer,
-        }}
+        initialValues={initialValues}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          console.log("VALUES ========== ", values)
-          const { manufacturer = [] } = values;
-
           const updatedValues = {
-            publicData: { manufacturer },
+            publicData: { manufacturer: manufacturerArray },
           };
           onSubmit(updatedValues);
         }}
@@ -65,6 +74,8 @@ const EditListingManufacturerPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
+        setManufacturerArray={setManufacturerArray}
+        manufacturerArray={manufacturerArray}
       />
     </div>
   );

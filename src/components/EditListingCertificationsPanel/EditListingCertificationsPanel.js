@@ -6,7 +6,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
 import { EditListingPaymentMethodsForm } from '../../forms';
-import { ListingLink } from '..';
+import { ListingLink } from '../../components';
 
 import css from './EditListingCertificationsPanel.module.css';
 import EditListingCertificationsForm from '../../forms/EditListingCertificationsForm/EditListingCertificationsForm';

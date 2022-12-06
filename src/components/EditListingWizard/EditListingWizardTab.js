@@ -194,7 +194,9 @@ const EditListingWizardTab = props => {
         <EditListingManufacturerPanel
           {...panelProps(MANUFACTURERS)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
+          
           onSubmit={values => {
+            console.log("VALUES ======= ", values)
             onCompleteEditListingWizardTab(tab, values);
           }}
         />
