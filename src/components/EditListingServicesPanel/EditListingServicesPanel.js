@@ -5,7 +5,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 
 import { LISTING_STATE_DRAFT } from '../../util/types';
 import { ensureListing } from '../../util/data';
-import { EditListingPaymentMethodsForm, EditListingServicesForm } from '../../forms';
+import { EditListingServicesForm } from '../../forms';
 import { ListingLink } from '../../components';
 
 import css from './EditListingServicesPanel.module.css';
@@ -31,7 +31,7 @@ const EditListingServicesPanel = props => {
   const currentListing = ensureListing(listing);
   const { publicData } = currentListing.attributes;
 
-  const [servicesArray, setServicesArray] = useState([]);
+  // const [servicesArray, setServicesArray] = useState([]);
 
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
@@ -45,14 +45,14 @@ const EditListingServicesPanel = props => {
 
   const services = publicData && publicData.services;
   const initialValues = { services };
-  useEffect(() => {
-    if (initialValues?.services?.length) {
-      setServicesArray(initialValues?.services || []);
-    }
-    return () => {
-      // second
-    };
-  }, [JSON.stringify(initialValues?.services)]);
+  // useEffect(() => {
+  //   if (initialValues?.services?.length) {
+  //     setServicesArray(initialValues?.services || []);
+  //   }
+  //   return () => {
+  //     // second
+  //   };
+  // }, [JSON.stringify(initialValues?.services)]);
 
   return (
     <div className={classes}>
@@ -62,8 +62,10 @@ const EditListingServicesPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
+          const { services = [] } = values;
+
           const updatedValues = {
-            publicData: { services: servicesArray },
+            publicData: { services },
           };
           onSubmit(updatedValues);
         }}
@@ -74,8 +76,8 @@ const EditListingServicesPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
-        setServicesArray={setServicesArray}
-        servicesArray={servicesArray}
+        // setServicesArray={setServicesArray}
+        // servicesArray={servicesArray}
       />
     </div>
   );

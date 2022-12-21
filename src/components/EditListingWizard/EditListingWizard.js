@@ -88,7 +88,7 @@ const tabCompleted = (tab, listing) => {
         publicData.companyDescription
       );
     case MANUFACTURERS:
-      return !!(publicData && publicData.manufacturer);
+      return !!(publicData && publicData.manufacturers);
     case OPERATION_HOURS:
       return !!(
         publicData &&

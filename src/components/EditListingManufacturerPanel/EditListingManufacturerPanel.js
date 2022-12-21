@@ -10,11 +10,12 @@ import { EditListingManufacturerForm } from '../../forms';
 // import config from '../../config';
 
 import css from './EditListingManufacturerPanel.module.css';
+const FEATURES_NAME = 'manufacturers';
 
 const EditListingManufacturerPanel = props => {
   const {
-    className,
     rootClassName,
+    className,
     listing,
     disabled,
     ready,
@@ -30,7 +31,7 @@ const EditListingManufacturerPanel = props => {
   const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
 
-  const [manufacturerArray, setManufacturerArray] = useState([]);
+  // const [manufacturerArray, setManufacturerArray] = useState([]);
 
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
@@ -41,41 +42,41 @@ const EditListingManufacturerPanel = props => {
   ) : (
     <FormattedMessage id="EditListingManufacturerPanel.createListingTitle" />
   );
-  const manufacturer = publicData && publicData?.manufacturer;
-  const initialValues = { manufacturer };
-  useEffect(() => {
-    if (initialValues?.manufacturer?.length) {
-      setManufacturerArray(initialValues?.manufacturer || []);
-    }
-    console.log("initialValues?.manufacturer ==== ", initialValues?.manufacturer)
+  const manufacturers = publicData && publicData?.manufacturers;
+  const initialValues = { manufacturers };
 
-    return () => {
-      // second
-    };
-  }, [JSON.stringify(initialValues?.manufacturer)]);
-
-  // const categoryOptions = findOptionsForSelectFilter('category', config.custom.filters);
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingManufacturerForm
         className={css.form}
+        name={FEATURES_NAME}
         initialValues={initialValues}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
+          const { manufacturers = [] } = values;
+
           const updatedValues = {
-            publicData: { manufacturer: manufacturerArray },
+            publicData: { manufacturers },
           };
           onSubmit(updatedValues);
         }}
+        // className={css.form}
+        // initialValues={initialValues}
+        // onSubmit={values => {
+        //   const updatedValues = {
+        //     publicData: { manufacturers: manufacturerArray },
+        //   };
+        //   onSubmit(updatedValues);
+        // }}
         onChange={onChange}
         disabled={disabled}
         ready={ready}
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
-        setManufacturerArray={setManufacturerArray}
-        manufacturerArray={manufacturerArray}
+        // setManufacturerArray={setManufacturerArray}
+        // manufacturerArray={manufacturerArray}
       />
     </div>
   );

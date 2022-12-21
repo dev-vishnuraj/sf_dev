@@ -128,6 +128,10 @@ export const filters = [
           key: 'zelle',
           label: 'Zelle',
         },
+        {
+          key: 'credit_card',
+          label: 'Credit card',
+        },
       ],
     },
   },
@@ -256,6 +260,57 @@ export const filters = [
         {
           key: 'own_food_allowed',
           label: 'Own food allowed',
+        },
+      ],
+    },
+  },
+  {
+    id: 'manufacturers',
+    label: 'Manufacturers',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_manufacturers'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {
+          key: 'american_range',
+          label: 'American Range',
+        },
+        {
+          key: 'cleveland',
+          label: 'Cleveland',
+        },
+        {
+          key: 'imperial_brown',
+          label: 'Imperial Brown',
+        },
+        {
+          key: 'traulsen',
+          label: 'Traulsen',
+        },
+        {
+          key: 'bulman_products',
+          label: 'Bulman Products',
+        },
+        {
+          key: `custom_delis_equipment`,
+          label: `Custom Deli's Equipment`,
+        },
+        {
+          key: 'evergreen_manufacturing',
+          label: 'Evergreen Manufacturing',
+        },
+        {
+          key: 'golden_star',
+          label: 'Golden Star',
         },
       ],
     },
