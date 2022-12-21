@@ -12,10 +12,10 @@ import { Button, FieldCheckboxGroup, FieldTagsInput, Form } from '../../componen
 import css from './EditListingServicesForm.module.css';
 
 const EditListingServicesFormComponent = props => {
-  const { servicesArray, setServicesArray } = props;
-  const handleChange = data => {
-    setServicesArray(data);
-  };
+  // const { servicesArray, setServicesArray } = props;
+  // const handleChange = data => {
+  //   setServicesArray(data);
+  // };
   return (
     <FinalForm
       {...props}
@@ -47,7 +47,6 @@ const EditListingServicesFormComponent = props => {
         const submitInProgress = updateInProgress;
         const submitDisabled = disabled || submitInProgress;
 
-
         const { updateListingError, showListingsError } = fetchErrors || {};
         const errorMessage = updateListingError ? (
           <p className={css.error}>
@@ -60,17 +59,24 @@ const EditListingServicesFormComponent = props => {
             <FormattedMessage id="EditListingServicesForm.showListingFailed" />
           </p>
         ) : null;
-
+        const options = findOptionsForSelectFilter('services', config.custom.filters);
         return (
           <Form className={classes} onSubmit={handleSubmit}>
             {/* {errorMessageUpdateListing} */}
 
-            <FieldTagsInput
+            {/* <FieldTagsInput
               id="services"
               name="services"
               placeholder="Add New"
               handleChange={handleChange}
               tagArray={servicesArray}
+            /> */}
+
+            <FieldCheckboxGroup
+              className={css.services}
+              id={name}
+              name={name}
+              options={options}
             />
             <Button
               className={css.submitButton}

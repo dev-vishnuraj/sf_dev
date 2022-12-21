@@ -11,7 +11,7 @@ import { Form, Button, FieldTextInput } from '../../components';
 import css from './EditListingBioForm.module.css';
 
 const TITLE_MAX_LENGTH = 60;
-const DESCRIPTION_MAX_LENGTH = 1024;
+const DESCRIPTION_MAX_LENGTH = 5000;
 
 const EditListingBioFormComponent = props => (
   <FinalForm
@@ -166,6 +166,7 @@ const EditListingBioFormComponent = props => (
             name="companyDescription"
             className={css.companyDescription}
             type="textarea"
+            isTextarea
             label={companyDescriptionMessage}
             placeholder={companyDescriptionPlaceholderMessage}
             validate={composeValidators(
