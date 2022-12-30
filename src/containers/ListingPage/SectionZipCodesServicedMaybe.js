@@ -21,14 +21,30 @@ const SectionZipCodesServicedMaybe = props => {
       <h2 className={css.manufacturersTitle}>
         <FormattedMessage id="EditListingZipCodesPanel.title" />
       </h2>
+
       <PaginatedList
         list={selectedOptions}
-        itemsPerPage={5}
+        itemsPerPage={7}
+        displayNumbers={false}
         renderList={list => (
           <>
-            {list.map(item => {
-              return <div>{item}</div>;
-            })}
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+              {list.map(item => {
+                return (
+                  <div
+                    style={{
+                      border: '2px solid black',
+                      margin: '20px',
+                      padding: '5px 20px',
+                      borderRadius: '25px',
+                      backgroundColor: 'lightgray',
+                    }}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
         useMinimalControls={false}
