@@ -54,6 +54,8 @@ import SectionMapMaybe from './SectionMapMaybe';
 import css from './ListingPage.module.css';
 import SectionCompanyBioMaybe from './SectionCompanyBioMaybe';
 import SectionManufacturerMaybe from './SectionManufacturerMaybe';
+import EditIcon from './EditIcon';
+import SectionOperationHoursMaybe from './SectionOperationHoursMaybe';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -405,10 +407,10 @@ export class ListingPageComponent extends Component {
           image: schemaImages,
         }}
       >
-        <LayoutSingleColumn className={css.pageRoot}>
+        {/* <LayoutSingleColumn className={css.pageRoot}> */}
           <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
           <LayoutWrapperMain>
-            <div>
+            {/* <div> */}
               {/* <SectionImages
                 title={title}
                 listing={currentListing}
@@ -424,9 +426,27 @@ export class ListingPageComponent extends Component {
                 handleViewPhotosClick={handleViewPhotosClick}
                 onManageDisableScrolling={onManageDisableScrolling}
               /> */}
+              
               <div className={css.contentContainer}>
+                
                 {/* <SectionAvatar user={currentAuthor} params={params} /> */}
                 <div className={css.mainContent}>
+                <div className={css.editListingButton}>
+                    <NamedLink
+                      className={css.editListingLink}
+                      name="EditListingPage"
+                      params={{
+                        id: listingId.uuid,
+                        slug: listingSlug,
+                        type: listingType,
+                        tab: listingTab,
+                      }}
+                    >
+                      <EditIcon className={css.editIcon} />
+                      <FormattedMessage id={'ListingPage.editListing'} />
+                    </NamedLink>
+                  </div>
+
                   {/* <SectionHeading
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
@@ -439,6 +459,7 @@ export class ListingPageComponent extends Component {
                   {/* <SectionDescriptionMaybe description={description} /> */}
                   <SectionCompanyBioMaybe publicData={publicData} />
                   <SectionManufacturerMaybe publicData={publicData} />
+                  <SectionOperationHoursMaybe publicData={publicData} />
                   {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
                   {/* <SectionRulesMaybe publicData={publicData} /> */}
                   {/* <SectionMapMaybe
@@ -479,12 +500,12 @@ export class ListingPageComponent extends Component {
                   fetchLineItemsError={fetchLineItemsError}
                 /> */}
               </div>
-            </div>
+            {/* </div> */}
           </LayoutWrapperMain>
           {/* <LayoutWrapperFooter>
             <Footer />
           </LayoutWrapperFooter> */}
-        </LayoutSingleColumn>
+        {/* </LayoutSingleColumn> */}
       </Page>
     );
   }
@@ -616,10 +637,7 @@ const mapDispatchToProps = dispatch => ({
 // See: https://github.com/ReactTraining/react-router/issues/4671
 const ListingPage = compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   injectIntl
 )(ListingPageComponent);
 

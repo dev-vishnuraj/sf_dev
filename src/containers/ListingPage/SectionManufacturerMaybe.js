@@ -23,7 +23,7 @@ const SectionManufacturerMaybe = props => {
       </h2>
       <PaginatedList
         list={selectedOptions}
-        itemsPerPage={2}
+        itemsPerPage={5}
         renderList={list => (
           <>
             {list.map(item => {
@@ -31,13 +31,8 @@ const SectionManufacturerMaybe = props => {
             })}
           </>
         )}
+        useMinimalControls={false}
       />
-      {/* <PropertyGroup
-        id="ListingPage.amenities"
-        options={options}
-        selectedOptions={selectedOptions}
-        twoColumns={true}
-      /> */}
     </div>
   );
 };

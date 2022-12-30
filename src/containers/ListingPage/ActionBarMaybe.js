@@ -39,9 +39,9 @@ export const ActionBarMaybe = props => {
 
     return (
       <div className={css.actionBar}>
-        <p className={ownListingTextClasses}>
+        {/* <p className={ownListingTextClasses}>
           <FormattedMessage id={ownListingTextTranslationId} />
-        </p>
+        </p> */}
         <NamedLink className={css.editListingLink} name="EditListingPage" params={editParams}>
           <EditIcon className={css.editIcon} />
           <FormattedMessage id={message} />

@@ -22,12 +22,11 @@ const SectionImages = props => {
 
   // Action bar is wrapped with a div that prevents the click events
   // to the parent that would otherwise open the image carousel
-  const actionBar = null;
-  // listing.id ? (
-  //   <div onClick={e => e.stopPropagation()}>
-  //     <ActionBarMaybe isOwnListing={isOwnListing} listing={listing} editParams={editParams} />
-  //   </div>
-  // ) : null;
+  const actionBar = listing.id ? (
+    <div onClick={e => e.stopPropagation()}>
+      <ActionBarMaybe isOwnListing={isOwnListing} listing={listing} editParams={editParams} />
+    </div>
+  ) : null;
 
   // const viewPhotosButton = null
   // hasImages ? (
@@ -43,8 +42,8 @@ const SectionImages = props => {
     <div className={css.sectionImages}>
       <div className={css.threeToTwoWrapper}>
         <div className={css.aspectWrapper} onClick={handleViewPhotosClick}>
-          {/* {actionBar}
-          <ResponsiveImage
+          {actionBar}
+          {/* <ResponsiveImage
             rootClassName={css.rootForImage}
             alt={title}
             image={firstImage}
