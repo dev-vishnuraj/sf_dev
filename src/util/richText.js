@@ -122,6 +122,9 @@ export const richText = (text, options) => {
 
   // longWordMinLength & longWordClass are needed for long words to be spanned
   // linkify = true is needed for links to be linkified (linkClass is optional)
+  if(options){
+    
+  }
   const { longWordMinLength, longWordClass, linkify = false, linkClass } = options;
   const linkOrLongWordClass = linkClass ? linkClass : longWordClass;
   const nonWhiteSpaceSequence = /([^\s]+)/gi;

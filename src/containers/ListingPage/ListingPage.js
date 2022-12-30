@@ -52,6 +52,8 @@ import SectionHostMaybe from './SectionHostMaybe';
 import SectionRulesMaybe from './SectionRulesMaybe';
 import SectionMapMaybe from './SectionMapMaybe';
 import css from './ListingPage.module.css';
+import SectionCompanyBioMaybe from './SectionCompanyBioMaybe';
+import SectionManufacturerMaybe from './SectionManufacturerMaybe';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -407,7 +409,7 @@ export class ListingPageComponent extends Component {
           <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
           <LayoutWrapperMain>
             <div>
-              <SectionImages
+              {/* <SectionImages
                 title={title}
                 listing={currentListing}
                 isOwnListing={isOwnListing}
@@ -421,11 +423,11 @@ export class ListingPageComponent extends Component {
                 onImageCarouselClose={() => this.setState({ imageCarouselOpen: false })}
                 handleViewPhotosClick={handleViewPhotosClick}
                 onManageDisableScrolling={onManageDisableScrolling}
-              />
+              /> */}
               <div className={css.contentContainer}>
-                <SectionAvatar user={currentAuthor} params={params} />
+                {/* <SectionAvatar user={currentAuthor} params={params} /> */}
                 <div className={css.mainContent}>
-                  <SectionHeading
+                  {/* <SectionHeading
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
@@ -433,17 +435,19 @@ export class ListingPageComponent extends Component {
                     hostLink={hostLink}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
-                  />
-                  <SectionDescriptionMaybe description={description} />
-                  <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} />
-                  <SectionRulesMaybe publicData={publicData} />
-                  <SectionMapMaybe
+                  /> */}
+                  {/* <SectionDescriptionMaybe description={description} /> */}
+                  <SectionCompanyBioMaybe publicData={publicData} />
+                  <SectionManufacturerMaybe publicData={publicData} />
+                  {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
+                  {/* <SectionRulesMaybe publicData={publicData} /> */}
+                  {/* <SectionMapMaybe
                     geolocation={geolocation}
                     publicData={publicData}
                     listingId={currentListing.id}
-                  />
-                  <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
-                  <SectionHostMaybe
+                  /> */}
+                  {/* <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} /> */}
+                  {/* <SectionHostMaybe
                     title={title}
                     listing={currentListing}
                     authorDisplayName={authorDisplayName}
@@ -455,9 +459,9 @@ export class ListingPageComponent extends Component {
                     onSubmitEnquiry={this.onSubmitEnquiry}
                     currentUser={currentUser}
                     onManageDisableScrolling={onManageDisableScrolling}
-                  />
+                  /> */}
                 </div>
-                <BookingPanel
+                {/* <BookingPanel
                   className={css.bookingPanel}
                   listing={currentListing}
                   isOwnListing={isOwnListing}
@@ -473,13 +477,13 @@ export class ListingPageComponent extends Component {
                   lineItems={lineItems}
                   fetchLineItemsInProgress={fetchLineItemsInProgress}
                   fetchLineItemsError={fetchLineItemsError}
-                />
+                /> */}
               </div>
             </div>
           </LayoutWrapperMain>
-          <LayoutWrapperFooter>
+          {/* <LayoutWrapperFooter>
             <Footer />
-          </LayoutWrapperFooter>
+          </LayoutWrapperFooter> */}
         </LayoutSingleColumn>
       </Page>
     );
