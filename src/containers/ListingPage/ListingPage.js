@@ -56,6 +56,10 @@ import SectionCompanyBioMaybe from './SectionCompanyBioMaybe';
 import SectionManufacturerMaybe from './SectionManufacturerMaybe';
 import EditIcon from './EditIcon';
 import SectionOperationHoursMaybe from './SectionOperationHoursMaybe';
+import SectionPaymentMethodsMaybe from './SectionPaymentMethodsMaybe';
+import SectionServicesProvidedMaybe from './SectionServicesProvidedMaybe';
+import SectionCertificationsMaybe from './SectionCertificationsMaybe';
+import SectionZipCodesServicedMaybe from './SectionZipCodesServicedMaybe';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -460,6 +464,10 @@ export class ListingPageComponent extends Component {
                   <SectionCompanyBioMaybe publicData={publicData} />
                   <SectionManufacturerMaybe publicData={publicData} />
                   <SectionOperationHoursMaybe publicData={publicData} />
+                  <SectionPaymentMethodsMaybe publicData={publicData} />
+                  <SectionServicesProvidedMaybe publicData={publicData} />
+                  <SectionCertificationsMaybe publicData={publicData} />
+                  <SectionZipCodesServicedMaybe publicData={publicData} />
                   {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
                   {/* <SectionRulesMaybe publicData={publicData} /> */}
                   {/* <SectionMapMaybe
