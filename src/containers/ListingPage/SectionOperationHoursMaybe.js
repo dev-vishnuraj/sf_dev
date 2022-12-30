@@ -10,9 +10,6 @@ const SectionOperationHoursMaybe = props => {
   return publicData ? (
     <div className={css.sectionOperationHoursProfileView}>
       <div className={css.sectionCompanyName}>
-        <h2 className={css.companyBioTitle}>
-          <FormattedMessage id="EditListingOperationHoursPanel.title" />
-        </h2>
         <p className={css.operationHoursMonday}>{publicData.operationHoursMonday}</p>
         <p className={css.operationHoursWednesday}>{publicData.operationHoursWednesday}</p>
         <p className={css.operationHoursFriday}>{publicData.operationHoursFriday}</p>
@@ -24,6 +21,7 @@ const SectionOperationHoursMaybe = props => {
         <p className={css.operationHoursSaturday}>{publicData.operationHoursSaturday}</p>
       </div>
     </div>
+    
   ) : null;
 };
 

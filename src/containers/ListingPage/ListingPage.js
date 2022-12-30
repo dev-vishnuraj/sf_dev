@@ -412,10 +412,10 @@ export class ListingPageComponent extends Component {
         }}
       >
         {/* <LayoutSingleColumn className={css.pageRoot}> */}
-          <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
-          <LayoutWrapperMain>
-            {/* <div> */}
-              {/* <SectionImages
+        <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
+        <LayoutWrapperMain>
+          {/* <div> */}
+          {/* <SectionImages
                 title={title}
                 listing={currentListing}
                 isOwnListing={isOwnListing}
@@ -430,28 +430,27 @@ export class ListingPageComponent extends Component {
                 handleViewPhotosClick={handleViewPhotosClick}
                 onManageDisableScrolling={onManageDisableScrolling}
               /> */}
-              
-              <div className={css.contentContainer}>
-                
-                {/* <SectionAvatar user={currentAuthor} params={params} /> */}
-                <div className={css.mainContent}>
-                <div className={css.editListingButton}>
-                    <NamedLink
-                      className={css.editListingLink}
-                      name="EditListingPage"
-                      params={{
-                        id: listingId.uuid,
-                        slug: listingSlug,
-                        type: listingType,
-                        tab: listingTab,
-                      }}
-                    >
-                      <EditIcon className={css.editIcon} />
-                      <FormattedMessage id={'ListingPage.editListing'} />
-                    </NamedLink>
-                  </div>
 
-                  {/* <SectionHeading
+          <div className={css.contentContainer}>
+            {/* <SectionAvatar user={currentAuthor} params={params} /> */}
+            <div className={css.mainContent}>
+              <div className={css.editListingButton}>
+                <NamedLink
+                  className={css.editListingLink}
+                  name="EditListingPage"
+                  params={{
+                    id: listingId.uuid,
+                    slug: listingSlug,
+                    type: listingType,
+                    tab: listingTab,
+                  }}
+                >
+                  <EditIcon className={css.editIcon} />
+                  <FormattedMessage id={'ListingPage.editListing'} />
+                </NamedLink>
+              </div>
+
+              {/* <SectionHeading
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
@@ -460,23 +459,28 @@ export class ListingPageComponent extends Component {
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
                   /> */}
-                  {/* <SectionDescriptionMaybe description={description} /> */}
-                  <SectionCompanyBioMaybe publicData={publicData} />
-                  <SectionManufacturerMaybe publicData={publicData} />
-                  <SectionOperationHoursMaybe publicData={publicData} />
-                  <SectionPaymentMethodsMaybe publicData={publicData} />
-                  <SectionServicesProvidedMaybe publicData={publicData} />
-                  <SectionCertificationsMaybe publicData={publicData} />
-                  <SectionZipCodesServicedMaybe publicData={publicData} />
-                  {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
-                  {/* <SectionRulesMaybe publicData={publicData} /> */}
-                  {/* <SectionMapMaybe
+              {/* <SectionDescriptionMaybe description={description} /> */}
+              <SectionCompanyBioMaybe publicData={publicData} />
+              <SectionManufacturerMaybe publicData={publicData} />
+              <h2 className={css.companyBioTitle}>
+                <FormattedMessage id="EditListingOperationHoursPanel.title" />
+              </h2>
+              <hr></hr>
+              <SectionOperationHoursMaybe publicData={publicData} />
+              <SectionPaymentMethodsMaybe publicData={publicData} />
+              <SectionServicesProvidedMaybe publicData={publicData} />
+              <SectionCertificationsMaybe publicData={publicData} />
+
+              <SectionZipCodesServicedMaybe publicData={publicData} />
+              {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
+              {/* <SectionRulesMaybe publicData={publicData} /> */}
+              {/* <SectionMapMaybe
                     geolocation={geolocation}
                     publicData={publicData}
                     listingId={currentListing.id}
                   /> */}
-                  {/* <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} /> */}
-                  {/* <SectionHostMaybe
+              {/* <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} /> */}
+              {/* <SectionHostMaybe
                     title={title}
                     listing={currentListing}
                     authorDisplayName={authorDisplayName}
@@ -489,8 +493,8 @@ export class ListingPageComponent extends Component {
                     currentUser={currentUser}
                     onManageDisableScrolling={onManageDisableScrolling}
                   /> */}
-                </div>
-                {/* <BookingPanel
+            </div>
+            {/* <BookingPanel
                   className={css.bookingPanel}
                   listing={currentListing}
                   isOwnListing={isOwnListing}
@@ -507,10 +511,10 @@ export class ListingPageComponent extends Component {
                   fetchLineItemsInProgress={fetchLineItemsInProgress}
                   fetchLineItemsError={fetchLineItemsError}
                 /> */}
-              </div>
-            {/* </div> */}
-          </LayoutWrapperMain>
-          {/* <LayoutWrapperFooter>
+          </div>
+          {/* </div> */}
+        </LayoutWrapperMain>
+        {/* <LayoutWrapperFooter>
             <Footer />
           </LayoutWrapperFooter> */}
         {/* </LayoutSingleColumn> */}

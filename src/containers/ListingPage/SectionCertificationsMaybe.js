@@ -12,8 +12,21 @@ const SectionCertificationsMaybe = props => {
       <h2 className={css.companyBioTitle}>
         <FormattedMessage id="EditListingCertificationsPanel.title" />
       </h2>
-      <p className={css.cfesaCertified}><FormattedMessage id='Is CFESA Certified : '/>{publicData.cfesaCertified}</p>
-      <p className={css.certifiedTechnicians}><FormattedMessage id='Number of certifed technicians : '/>{publicData.certifiedTechnicians}</p>
+      <hr></hr>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <div>
+          <h4 style={{fontWeight: 'bold'}}>Is CFESA Certified : </h4>
+          <p className={css.cfesaCertified}>
+            {publicData.cfesaCertified}
+          </p>
+        </div>
+        <div>
+        <h4 style={{fontWeight: 'bold'}}>Number of certifed technicians : </h4>
+          <p className={css.certifiedTechnicians}>
+            {publicData.certifiedTechnicians}
+          </p>
+        </div>
+      </div>
     </div>
   ) : null;
 };

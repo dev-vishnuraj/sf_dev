@@ -21,14 +21,13 @@ const SectionZipCodesServicedMaybe = props => {
       <h2 className={css.manufacturersTitle}>
         <FormattedMessage id="EditListingZipCodesPanel.title" />
       </h2>
-
+    <hr></hr>
       <PaginatedList
         list={selectedOptions}
         itemsPerPage={7}
-        displayNumbers={false}
         renderList={list => (
           <>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
               {list.map(item => {
                 return (
                   <div

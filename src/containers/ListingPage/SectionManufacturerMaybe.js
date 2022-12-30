@@ -21,14 +21,29 @@ const SectionManufacturerMaybe = props => {
       <h2 className={css.manufacturersTitle}>
         <FormattedMessage id="EditListingManufacturerPanel.title" />
       </h2>
+      <hr></hr>
       <PaginatedList
         list={selectedOptions}
-        itemsPerPage={5}
+        itemsPerPage={3}
         renderList={list => (
           <>
-            {list.map(item => {
-              return <div>{item}</div>;
-            })}
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              {list.map(item => {
+                return (
+                  <div
+                    style={{
+                      border: '2px solid black',
+                      margin: '20px',
+                      padding: '5px 20px',
+                      borderRadius: '25px',
+                      backgroundColor: 'lightgray',
+                    }}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
         useMinimalControls={false}
