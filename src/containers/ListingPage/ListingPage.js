@@ -52,6 +52,14 @@ import SectionHostMaybe from './SectionHostMaybe';
 import SectionRulesMaybe from './SectionRulesMaybe';
 import SectionMapMaybe from './SectionMapMaybe';
 import css from './ListingPage.module.css';
+import SectionCompanyBioMaybe from './SectionCompanyBioMaybe';
+import SectionManufacturerMaybe from './SectionManufacturerMaybe';
+import EditIcon from './EditIcon';
+import SectionOperationHoursMaybe from './SectionOperationHoursMaybe';
+import SectionPaymentMethodsMaybe from './SectionPaymentMethodsMaybe';
+import SectionServicesProvidedMaybe from './SectionServicesProvidedMaybe';
+import SectionCertificationsMaybe from './SectionCertificationsMaybe';
+import SectionZipCodesServicedMaybe from './SectionZipCodesServicedMaybe';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -403,11 +411,11 @@ export class ListingPageComponent extends Component {
           image: schemaImages,
         }}
       >
-        <LayoutSingleColumn className={css.pageRoot}>
-          <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
-          <LayoutWrapperMain>
-            <div>
-              <SectionImages
+        {/* <LayoutSingleColumn className={css.pageRoot}> */}
+        <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
+        <LayoutWrapperMain>
+          {/* <div> */}
+          {/* <SectionImages
                 title={title}
                 listing={currentListing}
                 isOwnListing={isOwnListing}
@@ -421,11 +429,28 @@ export class ListingPageComponent extends Component {
                 onImageCarouselClose={() => this.setState({ imageCarouselOpen: false })}
                 handleViewPhotosClick={handleViewPhotosClick}
                 onManageDisableScrolling={onManageDisableScrolling}
-              />
-              <div className={css.contentContainer}>
-                <SectionAvatar user={currentAuthor} params={params} />
-                <div className={css.mainContent}>
-                  <SectionHeading
+              /> */}
+
+          <div className={css.contentContainer}>
+            {/* <SectionAvatar user={currentAuthor} params={params} /> */}
+            <div className={css.mainContent}>
+              <div className={css.editListingButton}>
+                <NamedLink
+                  className={css.editListingLink}
+                  name="EditListingPage"
+                  params={{
+                    id: listingId.uuid,
+                    slug: listingSlug,
+                    type: listingType,
+                    tab: listingTab,
+                  }}
+                >
+                  <EditIcon className={css.editIcon} />
+                  <FormattedMessage id={'ListingPage.editListing'} />
+                </NamedLink>
+              </div>
+
+              {/* <SectionHeading
                     priceTitle={priceTitle}
                     formattedPrice={formattedPrice}
                     richTitle={richTitle}
@@ -433,17 +458,29 @@ export class ListingPageComponent extends Component {
                     hostLink={hostLink}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
-                  />
-                  <SectionDescriptionMaybe description={description} />
-                  <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} />
-                  <SectionRulesMaybe publicData={publicData} />
-                  <SectionMapMaybe
+                  /> */}
+              {/* <SectionDescriptionMaybe description={description} /> */}
+              <SectionCompanyBioMaybe publicData={publicData} />
+              <SectionManufacturerMaybe publicData={publicData} />
+              <h2 className={css.companyBioTitle}>
+                <FormattedMessage id="EditListingOperationHoursPanel.title" />
+              </h2>
+              <hr></hr>
+              <SectionOperationHoursMaybe publicData={publicData} />
+              <SectionPaymentMethodsMaybe publicData={publicData} />
+              <SectionServicesProvidedMaybe publicData={publicData} />
+              <SectionCertificationsMaybe publicData={publicData} />
+
+              <SectionZipCodesServicedMaybe publicData={publicData} />
+              {/* <SectionFeaturesMaybe options={amenityOptions} publicData={publicData} /> */}
+              {/* <SectionRulesMaybe publicData={publicData} /> */}
+              {/* <SectionMapMaybe
                     geolocation={geolocation}
                     publicData={publicData}
                     listingId={currentListing.id}
-                  />
-                  <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
-                  <SectionHostMaybe
+                  /> */}
+              {/* <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} /> */}
+              {/* <SectionHostMaybe
                     title={title}
                     listing={currentListing}
                     authorDisplayName={authorDisplayName}
@@ -455,9 +492,9 @@ export class ListingPageComponent extends Component {
                     onSubmitEnquiry={this.onSubmitEnquiry}
                     currentUser={currentUser}
                     onManageDisableScrolling={onManageDisableScrolling}
-                  />
-                </div>
-                <BookingPanel
+                  /> */}
+            </div>
+            {/* <BookingPanel
                   className={css.bookingPanel}
                   listing={currentListing}
                   isOwnListing={isOwnListing}
@@ -473,14 +510,14 @@ export class ListingPageComponent extends Component {
                   lineItems={lineItems}
                   fetchLineItemsInProgress={fetchLineItemsInProgress}
                   fetchLineItemsError={fetchLineItemsError}
-                />
-              </div>
-            </div>
-          </LayoutWrapperMain>
-          <LayoutWrapperFooter>
+                /> */}
+          </div>
+          {/* </div> */}
+        </LayoutWrapperMain>
+        {/* <LayoutWrapperFooter>
             <Footer />
-          </LayoutWrapperFooter>
-        </LayoutSingleColumn>
+          </LayoutWrapperFooter> */}
+        {/* </LayoutSingleColumn> */}
       </Page>
     );
   }
@@ -612,10 +649,7 @@ const mapDispatchToProps = dispatch => ({
 // See: https://github.com/ReactTraining/react-router/issues/4671
 const ListingPage = compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   injectIntl
 )(ListingPageComponent);
 
