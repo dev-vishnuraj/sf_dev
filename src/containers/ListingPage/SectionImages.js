@@ -28,21 +28,22 @@ const SectionImages = props => {
     </div>
   ) : null;
 
-  const viewPhotosButton = hasImages ? (
-    <button className={css.viewPhotos} onClick={handleViewPhotosClick}>
-      <FormattedMessage
-        id="ListingPage.viewImagesButton"
-        values={{ count: listing.images.length }}
-      />
-    </button>
-  ) : null;
+  // const viewPhotosButton = null
+  // hasImages ? (
+  //   <button className={css.viewPhotos} onClick={handleViewPhotosClick}>
+  //     <FormattedMessage
+  //       id="ListingPage.viewImagesButton"
+  //       values={{ count: listing.images.length }}
+  //     />
+  //   </button>
+  // ) : null;
 
   return (
     <div className={css.sectionImages}>
       <div className={css.threeToTwoWrapper}>
         <div className={css.aspectWrapper} onClick={handleViewPhotosClick}>
           {actionBar}
-          <ResponsiveImage
+          {/* <ResponsiveImage
             rootClassName={css.rootForImage}
             alt={title}
             image={firstImage}
@@ -52,11 +53,11 @@ const SectionImages = props => {
               'landscape-crop4x',
               'landscape-crop6x',
             ]}
-          />
-          {viewPhotosButton}
+          /> */}
+          {/* {viewPhotosButton} */}
         </div>
       </div>
-      <Modal
+      {/* <Modal
         id="ListingPage.imageCarousel"
         scrollLayerClassName={css.carouselModalScrollLayer}
         containerClassName={css.carouselModalContainer}
@@ -70,7 +71,7 @@ const SectionImages = props => {
           images={listing.images}
           imageVariants={['scaled-small', 'scaled-medium', 'scaled-large', 'scaled-xlarge']}
         />
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

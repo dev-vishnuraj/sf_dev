@@ -178,6 +178,23 @@
   }
 }
 
+.editListingButton {
+  width: 100%;
+  border: black 2px solid;
+  display: flex;
+  align-items: flex-end;
+}
+
+.editListingLink {
+  color: black;
+}
+.editListingLink:hover {
+  color: red;
+}
+
+.editIcon {
+  color: orange;
+}
 .carouselModalScrollLayer {
   width: 100vw;
   height: 100vh;
@@ -196,6 +213,8 @@
     padding: 0 24px;
     display: flex;
     position: relative;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (--viewportLarge) {
@@ -218,14 +237,16 @@
     margin-top: 50px;
     margin-bottom: 51px;
     flex-shrink: 0;
+    max-width: calc(100% - 30px);
+    flex-basis: calc(100% - 30px);
   }
 
   @media (--viewportLarge) {
     margin-top: 50px;
     margin-bottom: 0px;
     /* contentContainer's full width - (bookingColumn + two paddings + margin + border) */
-    max-width: calc(100% - 433px);
-    flex-basis: calc(100% - 433px);
+    max-width: calc(100% - 30px);
+    flex-basis: calc(100% - 30px);
     flex-shrink: 0;
     flex-grow: 1;
   }
@@ -248,6 +269,11 @@
   }
 }
 
+.sectionOperationHoursProfileView {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .sectionAvatar {
   /* Position (over the listing image)*/
   margin-left: 24px;
