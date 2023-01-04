@@ -218,17 +218,17 @@ export class AuthenticationPageComponent extends Component {
 
       return { baseUrl, fromParam, defaultReturnParam, defaultConfirmParam };
     };
-    const authWithFacebook = () => {
-      const defaultRoutes = getDefaultRoutes();
-      const { baseUrl, fromParam, defaultReturnParam, defaultConfirmParam } = defaultRoutes;
-      window.location.href = `${baseUrl}/api/auth/facebook?${fromParam}${defaultReturnParam}${defaultConfirmParam}`;
-    };
+    // const authWithFacebook = () => {
+    //   const defaultRoutes = getDefaultRoutes();
+    //   const { baseUrl, fromParam, defaultReturnParam, defaultConfirmParam } = defaultRoutes;
+    //   window.location.href = `${baseUrl}/api/auth/facebook?${fromParam}${defaultReturnParam}${defaultConfirmParam}`;
+    // };
 
-    const authWithGoogle = () => {
-      const defaultRoutes = getDefaultRoutes();
-      const { baseUrl, fromParam, defaultReturnParam, defaultConfirmParam } = defaultRoutes;
-      window.location.href = `${baseUrl}/api/auth/google?${fromParam}${defaultReturnParam}${defaultConfirmParam}`;
-    };
+    // const authWithGoogle = () => {
+    //   const defaultRoutes = getDefaultRoutes();
+    //   const { baseUrl, fromParam, defaultReturnParam, defaultConfirmParam } = defaultRoutes;
+    //   window.location.href = `${baseUrl}/api/auth/google?${fromParam}${defaultReturnParam}${defaultConfirmParam}`;
+    // };
 
     const idp = this.state.authInfo
       ? this.state.authInfo.idpId.replace(/^./, str => str.toUpperCase())
@@ -258,48 +258,48 @@ export class AuthenticationPageComponent extends Component {
     );
 
     // Social login buttons
-    const showFacebookLogin = !!process.env.REACT_APP_FACEBOOK_APP_ID;
-    const showGoogleLogin = !!process.env.REACT_APP_GOOGLE_CLIENT_ID;
-    const showSocialLogins = showFacebookLogin || showGoogleLogin;
+    // const showFacebookLogin = !!process.env.REACT_APP_FACEBOOK_APP_ID;
+    // const showGoogleLogin = !!process.env.REACT_APP_GOOGLE_CLIENT_ID;
+    // const showSocialLogins = showFacebookLogin || showGoogleLogin;
 
-    const facebookButtonText = isLogin ? (
-      <FormattedMessage id="AuthenticationPage.loginWithFacebook" />
-    ) : (
-      <FormattedMessage id="AuthenticationPage.signupWithFacebook" />
-    );
+    // const facebookButtonText = isLogin ? (
+    //   <FormattedMessage id="AuthenticationPage.loginWithFacebook" />
+    // ) : (
+    //   <FormattedMessage id="AuthenticationPage.signupWithFacebook" />
+    // );
 
-    const googleButtonText = isLogin ? (
-      <FormattedMessage id="AuthenticationPage.loginWithGoogle" />
-    ) : (
-      <FormattedMessage id="AuthenticationPage.signupWithGoogle" />
-    );
-    const socialLoginButtonsMaybe = showSocialLogins ? (
-      <div className={css.idpButtons}>
-        <div className={css.socialButtonsOr}>
-          <span className={css.socialButtonsOrText}>
-            <FormattedMessage id="AuthenticationPage.or" />
-          </span>
-        </div>
+    // const googleButtonText = isLogin ? (
+    //   <FormattedMessage id="AuthenticationPage.loginWithGoogle" />
+    // ) : (
+    //   <FormattedMessage id="AuthenticationPage.signupWithGoogle" />
+    // );
+    // const socialLoginButtonsMaybe = showSocialLogins ? (
+    //   <div className={css.idpButtons}>
+    //     <div className={css.socialButtonsOr}>
+    //       <span className={css.socialButtonsOrText}>
+    //         <FormattedMessage id="AuthenticationPage.or" />
+    //       </span>
+    //     </div>
 
-        {showFacebookLogin ? (
-          <div className={css.socialButtonWrapper}>
-            <SocialLoginButton onClick={() => authWithFacebook()}>
-              <span className={css.buttonIcon}>{FacebookLogo}</span>
-              {facebookButtonText}
-            </SocialLoginButton>
-          </div>
-        ) : null}
+    //     {showFacebookLogin ? (
+    //       <div className={css.socialButtonWrapper}>
+    //         <SocialLoginButton onClick={() => authWithFacebook()}>
+    //           <span className={css.buttonIcon}>{FacebookLogo}</span>
+    //           {facebookButtonText}
+    //         </SocialLoginButton>
+    //       </div>
+    //     ) : null}
 
-        {showGoogleLogin ? (
-          <div className={css.socialButtonWrapper}>
-            <SocialLoginButton onClick={() => authWithGoogle()}>
-              <span className={css.buttonIcon}>{GoogleLogo}</span>
-              {googleButtonText}
-            </SocialLoginButton>
-          </div>
-        ) : null}
-      </div>
-    ) : null;
+    //     {showGoogleLogin ? (
+    //       <div className={css.socialButtonWrapper}>
+    //         <SocialLoginButton onClick={() => authWithGoogle()}>
+    //           <span className={css.buttonIcon}>{GoogleLogo}</span>
+    //           {googleButtonText}
+    //         </SocialLoginButton>
+    //       </div>
+    //     ) : null}
+    //   </div>
+    // ) : null;
 
     // Tabs for SignupForm and LoginForm
     const authenticationForms = (
@@ -318,7 +318,7 @@ export class AuthenticationPageComponent extends Component {
           />
         )}
 
-        {socialLoginButtonsMaybe}
+        {/* {socialLoginButtonsMaybe} */}
       </div>
     );
 
