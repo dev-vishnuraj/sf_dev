@@ -13,11 +13,11 @@ const SectionCompanyBioMaybe = props => {
         <FormattedMessage id="EditListingBioPanel.title" />
       </h2>
       <hr></hr>
-      <p className={css.companyName}>{publicData.companyName}</p>
-      <p className={css.companyEmail}>{publicData.companyEmail}</p>
-      <p className={css.companyPhone}>{publicData.companyPhone}</p>
-      <p className={css.companyAddress}>{publicData.companyAddress}</p>
-      <p className={css.companyDescription}>{publicData.companyDescription}</p>
+      <p className={css.companyName}><strong style={{color: 'red'}}>Name : &emsp; </strong>{publicData.companyName}</p>
+      <p className={css.companyEmail}><strong style={{color: 'red'}}>Email : &emsp; </strong>{publicData.companyEmail}</p>
+      <p className={css.companyPhone}><strong style={{color: 'red'}}>Phone : &emsp; </strong>{publicData.companyPhone}</p>
+      <p className={css.companyAddress}><strong style={{color: 'red'}}>Address : &emsp; </strong>{publicData.companyAddress}</p>
+      <p className={css.companyDescription}><strong style={{color: 'red'}}>Description : &emsp; </strong>{publicData.companyDescription}</p>
     </div>
   ) : null;
 };

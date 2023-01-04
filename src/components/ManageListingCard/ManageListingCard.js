@@ -194,13 +194,13 @@ export const ManageListingCardComponent = props => {
         onTouchStart={onOverListingLink}
       >
         <div className={css.aspectWrapper}>
-          <ResponsiveImage
+          {/* <ResponsiveImage
             rootClassName={css.rootForImage}
             alt={title}
             image={firstImage}
             variants={['landscape-crop', 'landscape-crop2x']}
             sizes={renderSizes}
-          />
+          /> */}
         </div>
         <div className={classNames(css.menuOverlayWrapper, { [css.menuOverlayOpen]: isMenuOpen })}>
           <div className={classNames(css.menuOverlay)} />
@@ -208,7 +208,7 @@ export const ManageListingCardComponent = props => {
             <FormattedMessage id="ManageListingCard.viewListing" />
           </div>
         </div>
-        <div className={css.menubarWrapper}>
+        {/* <div className={css.menubarWrapper}>
           <div className={css.menubarGradient} />
           <div className={css.menubar}>
             <Menu
@@ -246,7 +246,7 @@ export const ManageListingCardComponent = props => {
               </MenuContent>
             </Menu>
           </div>
-        </div>
+        </div> */}
         {isDraft ? (
           <React.Fragment>
             <div className={classNames({ [css.draftNoImage]: !firstImage })} />

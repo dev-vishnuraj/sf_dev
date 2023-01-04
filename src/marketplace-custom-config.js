@@ -171,6 +171,66 @@ export const filters = [
           key: 'service5',
           label: 'Service five',
         },
+        {
+          key: 'service6',
+          label: 'Service six',
+        },
+        {
+          key: 'service7',
+          label: 'Service seven',
+        },
+        {
+          key: 'service8',
+          label: 'Service eight',
+        },
+        {
+          key: 'service9',
+          label: 'Service nine',
+        },
+        {
+          key: 'service10',
+          label: 'Service ten',
+        },
+        {
+          key: 'service11',
+          label: 'Service eleven',
+        },
+        {
+          key: 'service12',
+          label: 'Service twelve',
+        },
+        {
+          key: 'service13',
+          label: 'Service thirteen',
+        },
+        {
+          key: 'service14',
+          label: 'Service fourteen',
+        },
+        {
+          key: 'service15',
+          label: 'Service fifteen',
+        },
+        {
+          key: 'service16',
+          label: 'Service sixteen',
+        },
+        {
+          key: 'service17',
+          label: 'Service seventeen',
+        },
+        {
+          key: 'service18',
+          label: 'Service eighteen',
+        },
+        {
+          key: 'service19',
+          label: 'Service nineteen',
+        },
+        {
+          key: 'service20',
+          label: 'Service twenty',
+        },
       ],
     },
   },
