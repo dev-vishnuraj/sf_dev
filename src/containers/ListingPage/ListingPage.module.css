@@ -178,18 +178,25 @@
   }
 }
 
+.editIcon {
+  color: black;
+}
+
 .editListingButton {
-  width: 100%;
-  border: black 2px solid;
+  width: 20%;
   display: flex;
-  align-items: flex-end;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 75%;
 }
 
 .editListingLink {
-  color: black;
+  color: #C0392B;
+  font-weight: 700;
 }
 .editListingLink:hover {
-  color: red;
+  color: blue;
 }
 
 .editIcon {

@@ -30,6 +30,7 @@ export const TopbarContainerComponent = props => {
     onResendVerificationEmail,
     ...rest
   } = props;
+  console.log("currentUserHasListings = ", currentUserHasListings);
 
   return (
     <Topbar

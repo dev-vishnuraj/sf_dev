@@ -24,19 +24,19 @@ const SectionZipCodesServicedMaybe = props => {
     <hr></hr>
       <PaginatedList
         list={selectedOptions}
-        itemsPerPage={7}
+        itemsPerPage={15}
         renderList={list => (
           <>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
               {list.map(item => {
                 return (
                   <div
                     style={{
-                      border: '2px solid black',
-                      margin: '20px',
-                      padding: '5px 20px',
-                      borderRadius: '25px',
-                      backgroundColor: 'lightgray',
+                       // border: '2px solid black',
+                       margin: '10px 20px',
+                       padding: '5px 20px',
+                       borderRadius: '25px',
+                       backgroundColor: 'lightgray',
                     }}
                   >
                     {item}
@@ -46,7 +46,8 @@ const SectionZipCodesServicedMaybe = props => {
             </div>
           </>
         )}
-        useMinimalControls={false}
+        useMinimalControls={selectedOptions.length > 15 ? false : true}
+        displayNumbers={selectedOptions.length > 15 ? true : false}
       />
     </div>
   );

@@ -131,7 +131,7 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
-  const editProfileLink = isAuthenticated ? (
+  const editProfileLink = isAuthenticated && !currentUserHasListings? (
     <NamedLink className={css.createListingLink} name="NewListingPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />
