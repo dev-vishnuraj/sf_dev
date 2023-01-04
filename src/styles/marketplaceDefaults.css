@@ -537,11 +537,11 @@ textarea {
 .defaultBackgroundImageForDesktop {
   /* Gradient direction and overlaying the black color on top of the image for better readability */
   @media (--viewportMedium) {
-    background: linear-gradient(-45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
-      url('../assets/background-1440.jpg');
+    /* background: linear-gradient(-45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+      url('../assets/background-1440.jpg'); */
 
     /* Add loading color for the div */
-    background-color: var(--matterColor);
+    /* background-color: var(--matterColor); */
 
     /* Cover the whole screen with the background image */
     background-size: cover;
@@ -835,9 +835,9 @@ textarea {
     flex-grow: 0;
     /* min-height: 568px; */
     padding: var(--modalPaddingMedium);
-    margin-top: 12.5vh;
-    margin-bottom: 12.5vh;
-    border-bottom: 8px solid var(--marketplaceColor);
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    /* border-bottom: 8px solid var(--marketplaceColor); */
   }
 }
 
