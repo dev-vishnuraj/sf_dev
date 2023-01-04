@@ -40,6 +40,7 @@ import {
   BookingPanel,
 } from '../../components';
 import { TopbarContainer, NotFoundPage } from '../../containers';
+import edit_icon from '../../components/IconEdit/edit_icon.svg';
 
 import { sendEnquiry, fetchTransactionLineItems, setInitialValues } from './ListingPage.duck';
 import SectionImages from './SectionImages';
@@ -445,8 +446,10 @@ export class ListingPageComponent extends Component {
                     tab: listingTab,
                   }}
                 >
-                  <EditIcon className={css.editIcon} />
-                  <FormattedMessage id={'ListingPage.editListing'} />
+                  {/* <EditIcon className={css.editIcon} /> */}
+                  {/* <FontAwesomeIcon icon="fa-light fa-pen-to-square" /> */}
+                  <img src={edit_icon} alt="edit" />
+                  <FormattedMessage id={'  Edit Profile'} />
                 </NamedLink>
               </div>
 
