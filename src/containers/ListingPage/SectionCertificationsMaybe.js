@@ -15,15 +15,19 @@ const SectionCertificationsMaybe = props => {
       <hr></hr>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
         <div>
-          <h4 style={{fontWeight: 'bold', color: 'red'}}>Is CFESA Certified : </h4>
           <p className={css.cfesaCertified}>
-            {publicData.cfesaCertified}
+            <h4 style={{ fontWeight: 'bold', color: 'red' }}>
+              Is CFESA Certified : &emsp;{' '}
+              <strong style={{ color: 'black' }}>{publicData.cfesaCertified}</strong>
+            </h4>
           </p>
         </div>
         <div>
-        <h4 style={{fontWeight: 'bold', color: 'red'}}>Number of certifed technicians : </h4>
           <p className={css.certifiedTechnicians}>
-            {publicData.certifiedTechnicians}
+            <h4 style={{ fontWeight: 'bold', color: 'red' }}>
+              Number of certifed technicians : &emsp;{' '}
+              <strong style={{ color: 'black' }}>{publicData.certifiedTechnicians}</strong>
+            </h4>
           </p>
         </div>
       </div>
